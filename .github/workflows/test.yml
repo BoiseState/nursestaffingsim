@@ -1,0 +1,21 @@
+# This is the test workflow that will run the test.sh script
+
+name: test
+on: push
+
+jobs:
+  run:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v1
+    - name: script
+    - run: |
+      # make file runnable, might not be necessary
+      chmod +x "${GITHUB_WORKSPACE}/.github/test.sh"
+      # run script
+      "${GITHUB_WORKSPACE}/.github/test.sh"
+      # or
+      "${{ format('{0}/.github/test.sh', github.workspace) }}"
+      shell: bash
+      with:
+      password: ${{ secrets.ACCESS_TOKEN }}
