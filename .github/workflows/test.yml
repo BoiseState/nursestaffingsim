@@ -20,9 +20,5 @@ jobs:
     - name: Install Packages
       run: npm install
       
-    - name: TestsCompiler
+    - name: Tests
       run: chmod a+x ./test.sh
-    
-    - name: TestsRun
-      run: ./test.sh
-       
