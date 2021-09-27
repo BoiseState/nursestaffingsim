@@ -1,1 +1,2 @@
-echo "Hello, shell script"
+npm run test a
+exit 127
