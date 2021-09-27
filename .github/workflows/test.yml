@@ -22,6 +22,7 @@ jobs:
       
     - name: Tests 
       run: chmod a+x ./.github/workflows/test.sh
+           ./.github/workflows/test.sh
            
            
       
