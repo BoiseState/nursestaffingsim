@@ -1,2 +1,2 @@
-echo "Hello World"
+#!/bin/bash
 exit 127
