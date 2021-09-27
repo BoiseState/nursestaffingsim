@@ -1,2 +1,2 @@
-npm run test a
+echo "Hello World"
 exit 127
