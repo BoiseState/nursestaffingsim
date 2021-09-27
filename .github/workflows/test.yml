@@ -1,0 +1,25 @@
+# https://medium.com/swlh/deploy-create-react-app-to-github-pages-using-github-actions-4e95ae7fd65f#:~:text=%20Deploy%20create-react-app%20to%20GitHub%20Pages%20using%20GitHub,GitHub%20Actions%20makes%20it%20easy%20to...%20More%20
+
+name: Tests
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Packages
+      run: npm install
+      
+    - name: Tests 
+      run: npm run test a
+        
