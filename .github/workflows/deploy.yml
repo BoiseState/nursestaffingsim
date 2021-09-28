@@ -18,10 +18,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Packages
-      run: npm install
       
-    - name: Build page
+    - name: Install packages and build page
       run: chmod a+x ./build.sh
       
     - name: Deploy to gh-pages

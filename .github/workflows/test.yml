@@ -17,10 +17,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Packages
-      run: npm install
       
-    - name: Tests
+    - name: Install Packages and Test
       run: chmod a+x ./test.sh
       
     - name: Deploy
