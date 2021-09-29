@@ -21,6 +21,9 @@ jobs:
     - name: Install Packages and Test
       run: chmod a+x ./test.sh
       
+    - name: RunTest
+      run: ./test.sh
+      
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
