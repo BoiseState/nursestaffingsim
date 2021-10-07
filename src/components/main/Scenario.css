@@ -1,0 +1,8 @@
+#scenario .card-header {
+    text-align: left;
+}
+
+#scenario input {
+    margin: 3px;
+    padding:1px;
+}
