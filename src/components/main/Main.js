@@ -1,5 +1,4 @@
 import Scenario from './Scenario.js';
-import './Main.css';
 
 function Main() {
     return (
