@@ -1,0 +1,17 @@
+#header img {
+    height: 15%;
+    width: 15%;
+    cursor: pointer;
+}
+
+#header h1 {
+    color: white;
+    padding: 1%;
+    font-weight: bold;
+}
+
+#header {
+    background-color: #0033A0;
+    padding: 2%;
+}
+
