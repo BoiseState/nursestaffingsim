@@ -4,7 +4,7 @@ import Header from './components/header/Header.js';
 import Footer from './components/footer/Footer.js';
 
 
-test('Main page renders page', () => {
+test('Main page renders', () => {
   render(<App />);
 });
 
