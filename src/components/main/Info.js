@@ -65,7 +65,7 @@ class Info extends Component
 					 Allocate your resources accordlingly
 					 </Typography.Paragraph>
 				   <Typography.Paragraph style={this.state.center}>
-					<Button onClick={this.handleRandom}>Add Home Practice</Button>
+					
 					</Typography.Paragraph>
 				</Typography>
 			</Layout.Content>
