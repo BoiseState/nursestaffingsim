@@ -3,7 +3,6 @@ import { Form, InputGroup, Card } from "react-bootstrap";
 import './Scenario.css';
 import StaffAdd from './StaffAdd'
 import Info from './Info'
-
 class Scenario extends React.Component {
     constructor(props) {
         super(props);
@@ -31,7 +30,7 @@ class Scenario extends React.Component {
 	calculation = (info,num) =>
 	{
 	
-		/*if(info.bedUnit!=='' && info.census!=='' && info.HPPD!=='' && num!=='')
+		if(info.bedUnit!=='' && info.census!=='' && info.HPPD!=='' && num!=='')
 		{
 			let result = (info.bedUnit*(info.census/100))*info.HPPD/12;
 			 console.log(num+":"+result)
@@ -46,7 +45,7 @@ class Scenario extends React.Component {
 			     this.setState({"results":show});
 			      this.setState({"staffNum":"The Results:"+num});
 			}
-		}*/
+		}
 		
 	}
 	
@@ -79,6 +78,11 @@ class Scenario extends React.Component {
     render() {
         return (
             <div className="App">
+
+                    <Card id="scenario">
+                        <Card.Header>Fill out the scenario fields based off of the in-class example.</Card.Header>
+                    </Card>
+
             		<Info props={this.state} setInfo={this.setInfo}/>
             		<StaffAdd staffs={this.state.staffs}  results={this.state.results} staffNum={this.state.staffNum} setInfoStaffNum={this.setInfoStaffNum}/>
             </div>
