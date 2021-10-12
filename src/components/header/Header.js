@@ -13,7 +13,7 @@ class Header extends React.Component {
     render() {
         return(
             <Jumbotron id="header">
-                <img src={logo} alt="Logo" onClick={this.onReload}/>
+                <img src={logo} alt="Logo" data-testid="reload" onClick={this.onReload}/>
                 <h1>BSU In-Patient Nurse Staffing Simulator</h1>
             </Jumbotron>
         );
