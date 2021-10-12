@@ -237,4 +237,3 @@ class StaffAdd extends Component
 	
 }
 export default StaffAdd
-
