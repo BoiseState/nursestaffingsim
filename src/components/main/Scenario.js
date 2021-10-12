@@ -1,15 +1,24 @@
 import React from 'react';
 import { Form, InputGroup, Card } from "react-bootstrap";
 import './Scenario.css';
+import StaffAdd from './StaffAdd'
+import Info from './Info'
 
 class Scenario extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            unit: '',
-            hppd: null,
-            census: 100, // default to 100% full
-            numbeds: null
+            title:"BSU In-Patient Nurse Staffing Simulator",
+            results:"",
+            staffNum:"The Results:",
+            num:"",
+            staffs: [],
+            info:{
+            	   unit:"",
+            	   HPPD:"",
+                bedUnit:"",
+                census:"",
+               }
         };
     }
 
@@ -18,27 +27,66 @@ class Scenario extends React.Component {
         let val = event.target.value;
         this.setState({[name]: val});
     }
-
+	
+	calculation = (info,num) =>
+	{
+	
+		if(info.bedUnit!=='' && info.census!=='' && info.HPPD!=='' && num!=='')
+		{
+			let result = (info.bedUnit*(info.census/100))*info.HPPD/12;
+			 console.log(num+":"+result)
+			if(parseInt(num)<=parseInt(result))
+			{
+				let show = `In line with budget`;
+			    this.setState({"results":show});
+			    this.setState({"staffNum":"The Results:"+num});
+			}else
+			{
+			     let show =`The rated budget has been exceeded`;
+			     this.setState({"results":show});
+			      this.setState({"staffNum":"The Results:"+num});
+			}
+		}
+		
+	}
+	
+	setInfo = (name,value) =>
+	{
+		let info=this.state.info;
+		if(name==='unit')
+		{
+			info.unit=value;
+		}else if(name==='HPPD')
+		{
+			info.HPPD=value;
+		}else if(name==='census')
+		{
+			info.census=value;
+		}else if(name==='bedUnit')
+		{
+			info.bedUnit=value;
+		}
+		this.setState({info:info});
+		this.calculation(info,this.state.num);
+	}
+	setInfoStaffNum = (num) =>
+	{
+		debugger;
+		this.setState({"num":num});
+		this.calculation(this.state.info,num);
+	}
+	
     render() {
         return (
-            <Card id="scenario">
-                <Card.Header>Fill out the scenario fields based off of the in-class example.</Card.Header>
-                <Card.Body>
-                        <Form>
-                            <InputGroup size="sm" className="mb-3">
-                                <p>The hospital unit is </p>
-                                <input type='text' name='unit' onChange={this.changeHandler}/>
-                                <p> and the HPPD is </p>
-                                <input type='text' name='hppd' onChange={this.changeHandler}/>
-                                <p>. You have </p>
-                                <input type='text' name='numbeds' onChange={this.changeHandler}/>
-                                <p> number of beds in your unit and your census is </p>
-                                <input type='text' name='census' value={this.state.census} onChange={this.changeHandler}/>
-                                <p>% full. Based off of this scenario, allocate your staffing resources.</p>
-                            </InputGroup>
-                        </Form>
-                </Card.Body>
-            </Card>
+            <div className="App">
+
+                    <Card id="scenario">
+                        <Card.Header>Fill out the scenario fields based off of the in-class example.</Card.Header>
+                    </Card>
+
+            		<Info props={this.state} setInfo={this.setInfo}/>
+            		<StaffAdd staffs={this.state.staffs}  results={this.state.results} staffNum={this.state.staffNum} setInfoStaffNum={this.setInfoStaffNum}/>
+            </div>
         );
     }
 }
