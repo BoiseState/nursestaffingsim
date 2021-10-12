@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { Typography,Paragraph,Layout,Button  } from 'antd';
 import 'antd/dist/antd.css'
+
 class Info extends Component
 {
 	 
