@@ -27,13 +27,13 @@ class Scenario extends React.Component {
                         <Form>
                             <InputGroup size="sm" className="mb-3">
                                 <p>The hospital unit is </p>
-                                <input type='text' name='unit' onChange={this.changeHandler}/>
+                                <input type='text' name='unit' data-testid="unit-id" onChange={this.changeHandler}/>
                                 <p> and the HPPD is </p>
-                                <input type='text' name='hppd' onChange={this.changeHandler}/>
+                                <input type='number' name='hppd' data-testid="hppd-id" onChange={this.changeHandler}/>
                                 <p>. You have </p>
-                                <input type='text' name='numbeds' onChange={this.changeHandler}/>
+                                <input type='text' name='numbeds' data-testid="number-id" onChange={this.changeHandler}/>
                                 <p> number of beds in your unit and your census is </p>
-                                <input type='text' name='census' value={this.state.census} onChange={this.changeHandler}/>
+                                <input type='number' name='census' data-testid="census-id" value={this.state.census} onChange={this.changeHandler}/>
                                 <p>% full. Based off of this scenario, allocate your staffing resources.</p>
                             </InputGroup>
                         </Form>
