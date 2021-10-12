@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import { Typography,Paragraph,Layout,Button  } from 'antd';
+import { Typography, Paragraph, Layout, Button } from 'antd';
+import { Form, InputGroup, Card } from "react-bootstrap";
 import 'antd/dist/antd.css'
 
 class Info extends Component
@@ -33,7 +34,7 @@ class Info extends Component
 			var Rand = Math.random();   
 			return (Min + Math.round(Rand * Range));
 		}
-		/*handleRandom = () =>
+		handleRandom = () =>
 		{
 			const num1 = this.random(8,24);
 			var a=document.getElementById("HPPD");
@@ -48,29 +49,35 @@ class Info extends Component
 			a=document.getElementById("bedUnit");
 			a.value=num3;
 			this.props.setInfo("bedUnit",num3)	;
-		}*/
+		}
 
 	  render () {
-	    return (
-		<Layout>
-			<Layout.Content>
-				<Typography>
-				   <Typography.Title style={this.state.center} >{this.state.title}</Typography.Title>
-				   <Typography.Paragraph style={this.state.center}>  
-					Hostpital unit is <input name="unit" id="unit"  onChange={this.handleAdd}/> and HPPD is <input  name="HPPD" id="HPPD" onChange={this.handleAdd} />
-					you census is <input name="census"  id="census" onChange={this.handleAdd} />% full in a  <input name="bedUnit"  onChange={this.handleAdd} id="bedUnit"/> bed unit
-					 Allocate your resources accordlingly
+          return (
+
+              <Layout>
+                  <Layout.Content>
+                      <Typography>
+
+
+                          <Card id="scenario">
+                              <Card.Header>Fill out the scenario fields based off of the in-class example.</Card.Header>
+                          </Card>
+
+                          <Typography.Title style={this.state.center} >{this.state.title}</Typography.Title>
+                          <Typography.Paragraph style={this.state.center}>
+                              Hostpital unit is <input name="unit" id="unit" onChange={this.handleAdd} /> and HPPD is <input name="HPPD" id="HPPD" onChange={this.handleAdd} />
+                              you census is <input name="census" id="census" onChange={this.handleAdd} />% full in a  <input name="bedUnit" onChange={this.handleAdd} id="bedUnit" /> bed unit
+                               Allocate your resources accordlingly
 					 </Typography.Paragraph>
-				   <Typography.Paragraph style={this.state.center}>
-					<Button onClick={this.handleRandom}>Add Home Practice</Button>
-					</Typography.Paragraph>
-				</Typography>
-			</Layout.Content>
-		</Layout>
+                          <Typography.Paragraph style={this.state.center}>
+                              <Button onClick={this.handleRandom}>Add Home Practice</Button>
+                          </Typography.Paragraph>
+                      </Typography>
+                  </Layout.Content>
+              </Layout>
+
 		);
 	  }
-			
-		
 	
 }
 export default Info
