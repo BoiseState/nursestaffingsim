@@ -1,12 +1,9 @@
 import React,{Component} from 'react';
-import './index.css';
 import { Typography,Paragraph,Layout,Button  } from 'antd';
 import 'antd/dist/antd.css'
+
 class Info extends Component
 {
-	 
-	 
-		
 		state=
 		{
 			   //title:"BSU In-Patient Nurse Staffing Simulator",
@@ -22,7 +19,7 @@ class Info extends Component
 			{
 				if(!(/^\+?[1-9][0-9]*$/.test(value)))
 				{
-                    alert("Only numbers(positive integers) can be entered");
+					alert("Only numbers(positive integers) can be entered");
 					return;
 				}
 			}
@@ -36,7 +33,7 @@ class Info extends Component
 			var Rand = Math.random();   
 			return (Min + Math.round(Rand * Range));
 		}
-		handleRandom = () =>
+		/*handleRandom = () =>
 		{
 			const num1 = this.random(8,24);
 			var a=document.getElementById("HPPD");
@@ -51,7 +48,7 @@ class Info extends Component
 			a=document.getElementById("bedUnit");
 			a.value=num3;
 			this.props.setInfo("bedUnit",num3)	;
-		}
+		}*/
 
 	  render () {
 	    return (

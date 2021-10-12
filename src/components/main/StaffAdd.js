@@ -1,6 +1,7 @@
 import React,{Component } from 'react';
 import { Modal,Form, Input, Button, Checkbox, Select, InputNumber,Row, Col,Space,Layout} from 'antd';
 import 'antd/dist/antd.css'
+
 class StaffAdd extends Component
 {
 	
@@ -10,14 +11,15 @@ class StaffAdd extends Component
 		   staffs: [],
 		   results:"",
 		   open:false,
-		   center:{"text-align":'center',backgroundColor:"#FFFF"},
+		   center:{"text-align":'center'/*,backgroundColor:"#FFFF"*/},
+		   inputW:{width: 150,},
 		   staffNum:"The Results:",
 		   style : {
 		     position: 'absolute',
 		     top: '50%',
 		     left: '50%',
 		     transform: 'translate(-50%, -50%)',
-		     width: 400,
+		     width: 1000,
 		     bgcolor: 'background.paper',
 		     border: '2px solid #000',
 		     boxShadow: 24,
@@ -138,31 +140,28 @@ class StaffAdd extends Component
 	
 	  render () {
 		const staffList = this.state.staffs.map((staff) =>
-		<Layout>
-		<Layout.Content style={this.state.center}>
-		        <Space  align="center">
-		           <InputNumber  defaultValue={staff.num} id={staff.id} onChange={
-					 e => this.reduceNum(e,staff.id) 
-				   } />			    
-				      <Select defaultValue={staff.type}>
+		
+		       <div>
+		           <InputNumber  defaultValue={staff.num} id={staff.id} onChange={e => this.reduceNum(e,staff.id) } />			    
+				      <Select defaultValue={staff.type} style={this.state.inputW}>
 						<Select.Option value="RN">RN</Select.Option>
 						<Select.Option value="LVN">LVN</Select.Option>
 						<Select.Option value="Unlicensed">Unlicensed</Select.Option>
 					  </Select>
-					  <Select defaultValue={staff.shift}>
+					  <Select defaultValue={staff.shift} style={this.state.inputW}>
 						    <Select.Option value="12 Hours Day">12 Hours Day</Select.Option>
 							<Select.Option value="12 Hours Night">12 Hours Night</Select.Option>
 							<Select.Option value="8 Hours Day">8 Hours Day</Select.Option>
 							<Select.Option value="8 Hours Evening">8 Hours Evening</Select.Option>
 							<Select.Option value="8 Hours Night">8 Hours Night</Select.Option>
 						</Select>
-		        </Space>
-				</Layout.Content >
-				</Layout>
+		       </div>
+			
 		  );
 		 
 	    return (
-		     <div>
+		     <Layout>
+		     	<Layout.Content>
 				<div><Button onClick={this.handleOpen}>Add new Staff</Button></div>
 				<div>
 				
@@ -229,7 +228,8 @@ class StaffAdd extends Component
 					 
 
 				</Modal>
-			  </div>
+			  </Layout.Content>
+			  </Layout>
 		);
 	  }
 			
