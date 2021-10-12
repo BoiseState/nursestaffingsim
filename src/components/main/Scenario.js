@@ -3,6 +3,7 @@ import { Form, InputGroup, Card } from "react-bootstrap";
 import './Scenario.css';
 import StaffAdd from './StaffAdd'
 import Info from './Info'
+
 class Scenario extends React.Component {
     constructor(props) {
         super(props);
