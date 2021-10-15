@@ -21,11 +21,11 @@ describe("<Scenario />", () => {
         render(<Scenario />);
         const inputHppd = screen.getByTestId("hppd-id");
         expect(inputHppd).toBeInTheDocument();
-        expect(inputHppd).toHaveAttribute("type", "number");
+        expect(inputHppd).toHaveAttribute("type", "text");
     
         userEvent.type(inputHppd, "102");
         
-        expect(screen.getByTestId("hppd-id")).toHaveValue(102);
+        expect(screen.getByTestId("hppd-id")).toHaveValue("102");
     });
 })
 
@@ -34,11 +34,11 @@ describe("<Scenario />", () => {
         render(<Scenario />);
         const inputNumbeds = screen.getByTestId("numbeds-id");
         expect(inputNumbeds).toBeInTheDocument();
-        expect(inputNumbeds).toHaveAttribute("type", "number");
+        expect(inputNumbeds).toHaveAttribute("type", "text");
     
         userEvent.type(inputNumbeds, "100");
         
-        expect(screen.getByTestId("numbeds-id")).toHaveValue(100);
+        expect(screen.getByTestId("numbeds-id")).toHaveValue("100");
     });
 })
 
