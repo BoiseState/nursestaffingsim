@@ -1,4 +1,3 @@
-import { text } from 'dom-helpers';
 import React from 'react';
 import { Form, InputGroup, Card } from "react-bootstrap";
 import './Scenario.css';
