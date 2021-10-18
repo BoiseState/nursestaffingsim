@@ -4,8 +4,10 @@
     "\\src",
     "\\src\\assets",
     "\\src\\components",
+    "\\src\\components\\footer",
+    "\\src\\components\\header",
     "\\src\\components\\main"
   ],
-  "SelectedNode": "\\src\\components\\main\\Main.js",
+  "SelectedNode": "\\src\\components\\main\\Scenario.js",
   "PreviewInSolutionExplorer": false
 }

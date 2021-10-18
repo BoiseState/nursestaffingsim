@@ -1,5 +1,5 @@
 import React,{Component } from 'react';
-import { Modal,Form, Input, Button, Checkbox, Select, InputNumber,Row, Col,Space,Layout} from 'antd';
+import { Modal,Form, Button, Select, InputNumber, Layout} from 'antd';
 import 'antd/dist/antd.css'
 
 class StaffAdd extends Component
@@ -11,7 +11,6 @@ class StaffAdd extends Component
 		   staffs: [],
 		   results:"",
 		   open:false,
-		   center:{"text-align":'center'/*,backgroundColor:"#FFFF"*/},
 		   inputW:{width: 150,},
 		   staffNum:"The Results:",
 		   style : {
