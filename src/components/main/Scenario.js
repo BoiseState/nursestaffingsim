@@ -17,7 +17,6 @@ class Scenario extends React.Component {
 			census:100, // default to 100
         };
     }
-
     //We are going to need to have alerts or errors so that we can test incorrect 
     //input as of right now there is not a good way to test bad input in the scenario.test.js
     // submitHandler = (event) => {
