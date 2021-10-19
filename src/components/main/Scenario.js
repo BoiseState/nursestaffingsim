@@ -24,8 +24,18 @@ class Scenario extends React.Component {
     changeHandler = (event) => {
         let name = event.target.name;
         let val = event.target.value;
-        this.setState({[name]: val});
+        if (name !== 'unit') {
+            if (!(/^\+?[1-9][0-9]*$/.test(val))) {
+                alert("Only numbers(positive integers) can be entered");
+                return;
+            }
+        }
+
+
+        this.setInfo(name, val)
+        //this.setState({ [name]: val }, () =>console.log(this.state));
     }
+
 	
 	calculation = (info,num) =>
     {
@@ -51,21 +61,21 @@ class Scenario extends React.Component {
 
 	}
 	
-	setInfo = (name,value) =>
+	setInfo = (name,val) =>
 	{
 		let info=this.state.info;
 		if(name==='unit')
 		{
-			info.unit=value;
+			info.unit=val;
 		}else if(name==='HPPD')
 		{
-			info.HPPD=value;
+			info.HPPD=val;
 		}else if(name==='census')
 		{
-			info.census=value;
+			info.census=val;
 		}else if(name==='bedUnit')
 		{
-			info.bedUnit=value;
+			info.bedUnit=val;
 		}
 		this.setState({info:info});
 		this.calculation(info,this.state.num);
@@ -76,23 +86,7 @@ class Scenario extends React.Component {
 		this.setState({"num":num});
 		this.calculation(this.state.info,num);
 	}
-	handleAdd = (e) =>
-	{
-		const name = e.target.name;
-		const value = e.target.value;
-		if(name!=='unit')
-		{
-			if(!(/^\+?[1-9][0-9]*$/.test(value)))
-			{
-				alert("Only numbers(positive integers) can be entered");
-				return;
-			}
-		}
-		
-		
-		this.setInfo(name,value)	
-		
-	}
+
 	
 	random = (Min,Max) =>{
 		var Range = Max - Min;   
@@ -103,16 +97,16 @@ class Scenario extends React.Component {
 	{
 		const num1 = this.random(8,24);
 		var a=document.getElementById("HPPD");
-		a.value=num1;
+		a.val=num1;
 		this.setInfo("HPPD",num1);	
 		
 		const num2 = this.random(1,100);
 		a=document.getElementById("census");
-		a.value=num2;
+		a.val=num2;
 	    this.setInfo("census",num2)	;
 		const num3 = this.random(10,1000);
 		a=document.getElementById("bedUnit");
-		a.value=num3;
+		a.val=num3;
 		this.setInfo("bedUnit",num3)	;
     }
 
@@ -125,14 +119,20 @@ class Scenario extends React.Component {
                     <Card.Body>
                         <Form>
                             <InputGroup size="sm" className="mb-3">
-                                <p>The hospital unit is</p> <input name="unit" data-testid="unit-id" id="unit" onChange={this.handleAdd} /> <p>and the HPPD is</p> <input name="HPPD" data-testid="hppd-id" id="HPPD" onChange={this.handleAdd} />
-                                <p>. You have</p>  <input name="bedUnit" data-testid="numbeds-id" onChange={this.handleAdd} id="bedUnit" /> <p>number of beds in your unit and your census is</p> <input name="census" data-testid="census-id" id="census" onChange={this.handleAdd} />
+                                <p>The hospital unit is</p>
+                                <input type='text' name='unit' data-testid="unit-id" onChange={this.changeHandler.bind(this)} />
+                                <p>and the HPPD is</p>
+                                <input name="HPPD" data-testid="hppd-id" id="HPPD" onChange={this.changeHandler.bind(this)} />
+                                <p>. You have</p>
+                                <input name="bedUnit" data-testid="numbeds-id" onChange={this.changeHandler.bind(this)} id="bedUnit" />
+                                <p>number of beds in your unit and your census is</p>
+                                <input name="census" data-testid="census-id" id="census" onChange={this.changeHandler.bind(this)} />
                                 <p>% full. Based off of this scenario, allocate your staffing resources.</p>
                             </InputGroup>
                         </Form>
                     </Card.Body>
                 </Card>
-            	
+
                 <StaffAdd staffs={this.state.staffs}  results={this.state.results} staffNum={this.state.staffNum} setInfoStaffNum={this.setInfoStaffNum}/>
 
             </div>
