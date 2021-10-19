@@ -1,8 +1,9 @@
-import React,{Component } from 'react';
-import { Modal,Form, Button, Select, InputNumber, Layout} from 'antd';
-import 'antd/dist/antd.css'
+import React from 'react';
+import { Select, InputNumber } from 'antd';
+import { Modal, Button, Container, Form } from "react-bootstrap";
+import './StaffAdd.css';
 
-class StaffAdd extends Component
+class StaffAdd extends React.Component
 {
 	
 	state=
@@ -11,19 +12,20 @@ class StaffAdd extends Component
 		   staffs: [],
 		   results:"",
 		   open:false,
+		   show:false,
 		   inputW:{width: 150,},
-		   staffNum:"The Results:",
-		   style : {
-		     position: 'absolute',
-		     top: '50%',
-		     left: '50%',
-		     transform: 'translate(-50%, -50%)',
-		     width: 1000,
-		     bgcolor: 'background.paper',
-		     border: '2px solid #000',
-		     boxShadow: 24,
-		     p: 4,
-		   }
+		   staffNum:"The Results:"
+		//    style : {
+		//      position: 'absolute',
+		//      top: '50%',
+		//      left: '50%',
+		//      transform: 'translate(-50%, -50%)',
+		//      width: 1000,
+		//      bgcolor: 'background.paper',
+		//      border: '2px solid #000',
+		//      boxShadow: 24,
+		//      p: 4,
+		//    }
 	}
 	
 	 
@@ -125,16 +127,16 @@ class StaffAdd extends Component
 	
 
 	
-	handleOpen = () =>
-	{
+	// handleOpen = () =>
+	// {
 			 
-		this.setState({"open":true});	
-	}
-	handleClose = () =>
-	{
+	// 	this.setState({"open":true});	
+	// }
+	// handleClose = () =>
+	// {
 			 
-		this.setState({"open":false});	
-	}
+	// 	this.setState({"open":false});	
+	// }
 	// const [open, setOpen] = React.useState(false);
 	
 	  render () {
@@ -157,36 +159,54 @@ class StaffAdd extends Component
 		       </div>
 			
 		  );
+
+		const handleClose = () => this.setState({"show":false});
+		const handleShow = () => this.setState({"show":true});
 		 
 	    return (
-		     <Layout>
-		     	<Layout.Content>
-				<div><Button onClick={this.handleOpen}>Add new Staff</Button></div>
+		     <Container id="resultsCont">
 				<div>
-				
-					
-					{staffList}
-					
+					<Button variant="primary" onClick={handleShow}>Add new Staff</Button>
 				</div>
 				<div>
-				   <p style={this.state.center}>
-					{this.props.staffNum}
-					</p  >
-					<p style={this.state.center}>
-					{this.props.results}
-					</p >
-			  </div>
-		
-				
-				
-				
-				
-				
-				<Modal
-				       title="Select your stuffing memeber close" visible={this.state.open} onOk={this.handleOpen} onCancel={this.handleClose}
-					    footer={null}
-				      >
-				    <Form
+					{staffList}	
+				</div>
+				<div id="results">
+					<p>{this.props.staffNum}</p  >
+					<p>{this.props.results}</p >
+			  	</div>
+			  {/* <Form>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Text className="text-muted">
+      We'll never share your email with anyone else.
+    </Form.Text>
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+    <Form.Check type="checkbox" label="Check me out" />
+  </Form.Group>
+  <Button variant="primary" type="submit">
+    Submit
+  </Button>
+</Form> */}
+				<Modal show={this.state.show} onHide={handleClose}>
+					<Modal.Header closeButton>
+						<Modal.Title>Select your staff member</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<Form>
+							<Form.Group className="mb-3" controlId="staffType" required>
+								<Form.Label>Staff Type</Form.Label>
+								<Form.Control type="select"></Form.Control>
+							</Form.Group>
+						</Form>
+					{/* <Form
 				           labelCol={{ span: 6 }}
 				           wrapperCol={{ span: 12 }}
 				           layout="horizontal"
@@ -217,18 +237,23 @@ class StaffAdd extends Component
 						    </Select>
 						 </Form.Item>
 						 <Form.Item wrapperCol={{ offset: 0, span: 16 }} >
-						        <Button type="primary" htmlType="submit">
+						        <Button variant="primary" htmlType="submit">
 						          Submit
 						        </Button>
 						 </Form.Item>
 						 
-					</Form>
-				         
-					 
-
+					</Form> */}
+					</Modal.Body>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={handleClose}>
+							Close
+						</Button>
+						<Button variant="primary" onClick={handleClose}>
+							Submit
+						</Button>
+					</Modal.Footer>
 				</Modal>
-			  </Layout.Content>
-			  </Layout>
+			  </Container>
 		);
 	  }
 			
