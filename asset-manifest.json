@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/f21-angels-of-mercy/static/css/main.9d5ce592.chunk.css",
+    "main.js": "/f21-angels-of-mercy/static/js/main.295aca7e.chunk.js",
+    "main.js.map": "/f21-angels-of-mercy/static/js/main.295aca7e.chunk.js.map",
+    "runtime-main.js": "/f21-angels-of-mercy/static/js/runtime-main.085d7eaa.js",
+    "runtime-main.js.map": "/f21-angels-of-mercy/static/js/runtime-main.085d7eaa.js.map",
+    "static/css/2.f37b3b4d.chunk.css": "/f21-angels-of-mercy/static/css/2.f37b3b4d.chunk.css",
+    "static/js/2.aaad358d.chunk.js": "/f21-angels-of-mercy/static/js/2.aaad358d.chunk.js",
+    "static/js/2.aaad358d.chunk.js.map": "/f21-angels-of-mercy/static/js/2.aaad358d.chunk.js.map",
+    "static/js/3.709c24c3.chunk.js": "/f21-angels-of-mercy/static/js/3.709c24c3.chunk.js",
+    "static/js/3.709c24c3.chunk.js.map": "/f21-angels-of-mercy/static/js/3.709c24c3.chunk.js.map",
+    "index.html": "/f21-angels-of-mercy/index.html",
+    "static/css/2.f37b3b4d.chunk.css.map": "/f21-angels-of-mercy/static/css/2.f37b3b4d.chunk.css.map",
+    "static/css/main.9d5ce592.chunk.css.map": "/f21-angels-of-mercy/static/css/main.9d5ce592.chunk.css.map",
+    "static/js/2.aaad358d.chunk.js.LICENSE.txt": "/f21-angels-of-mercy/static/js/2.aaad358d.chunk.js.LICENSE.txt",
+    "static/media/Left-aligned-square-gray-2.11bbe62b.png": "/f21-angels-of-mercy/static/media/Left-aligned-square-gray-2.11bbe62b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.085d7eaa.js",
+    "static/css/2.f37b3b4d.chunk.css",
+    "static/js/2.aaad358d.chunk.js",
+    "static/css/main.9d5ce592.chunk.css",
+    "static/js/main.295aca7e.chunk.js"
+  ]
+}
