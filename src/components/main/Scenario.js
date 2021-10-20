@@ -21,6 +21,24 @@ class Scenario extends React.Component {
         };
     }
 
+    //We are going to need to have alerts or errors so that we can test incorrect 
+    //input as of right now there is not a good way to test bad input in the scenario.test.js
+    // submitHandler = (event) => {
+    //     event.preventDefault();
+    //     let unit = this.state.unit;
+    //     let hppd = this.state.hppd;
+    //     let numbeds = this.state.numbeds;
+
+    //     if (!Number(hppd) && !Number(numbeds)) {
+    //         alert("Your hppd must be a number");
+    //         alert("Your numbeds must be a number");
+    //     }
+    //     if(Number(unit)){
+    //         alert("Your unit can't be a number")
+    //     }
+
+    // }
+
 
     changeHandler = (event) => {
         let name = event.target.name;
