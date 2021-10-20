@@ -21,6 +21,7 @@ class Scenario extends React.Component {
         };
     }
 
+
     changeHandler = (event) => {
         let name = event.target.name;
         let val = event.target.value;
@@ -97,16 +98,16 @@ class Scenario extends React.Component {
 	{
 		const num1 = this.random(8,24);
 		var a=document.getElementById("HPPD");
-		a.val=num1;
+        a.value=num1;
 		this.setInfo("HPPD",num1);	
 		
 		const num2 = this.random(1,100);
 		a=document.getElementById("census");
-		a.val=num2;
+        a.value=num2;
 	    this.setInfo("census",num2)	;
 		const num3 = this.random(10,1000);
 		a=document.getElementById("bedUnit");
-		a.val=num3;
+        a.value=num3;
 		this.setInfo("bedUnit",num3)	;
     }
 
