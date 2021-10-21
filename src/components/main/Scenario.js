@@ -16,7 +16,7 @@ class Scenario extends React.Component {
             	   unit:"",
             	   HPPD:"",
                 bedUnit:"",
-                census:"",
+                census:"100",
                }
         };
     }
