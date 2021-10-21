@@ -52,7 +52,6 @@ class Scenario extends React.Component {
 	
 	setInfoStaffNum = (num) =>
 	{
-		debugger;
 		this.setState({"num":num});
 		// this.calculation(this.state.info,num);
 	}
