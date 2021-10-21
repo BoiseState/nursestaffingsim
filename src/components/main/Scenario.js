@@ -141,11 +141,11 @@ class Scenario extends React.Component {
                                 <p>The hospital unit is</p>
                                 <input type='text' name='unit' data-testid="unit-id" onChange={this.changeHandler.bind(this)} />
                                 <p>and the HPPD is</p>
-                                <input name="HPPD" data-testid="hppd-id" id="HPPD" onChange={this.changeHandler.bind(this)} />
+                                <input type='text' name="HPPD" data-testid="hppd-id" id="HPPD" onChange={this.changeHandler.bind(this)} />
                                 <p>. You have</p>
-                                <input name="bedUnit" data-testid="numbeds-id" onChange={this.changeHandler.bind(this)} id="bedUnit" />
+                                <input type='text' name="bedUnit" data-testid="numbeds-id" onChange={this.changeHandler.bind(this)} id="bedUnit" />
                                 <p>number of beds in your unit and your census is</p>
-                                <input name="census" data-testid="census-id" id="census" onChange={this.changeHandler.bind(this)} />
+                                <input type='text' name="census" data-testid="census-id" id="census" onChange={this.changeHandler.bind(this)} />
                                 <p>% full. Based off of this scenario, allocate your staffing resources.</p>
                             </InputGroup>
                         </Form>
