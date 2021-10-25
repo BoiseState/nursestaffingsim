@@ -15,10 +15,12 @@ This project is to help BSU nursing students practice staffing resource allocati
     - npm start will launch a development environment of the website. 
 
 # Running The Test Suite
-1. From Terminal run npm run test
+1. npm run test
 
 # Common Error handling
 1. If a package is added to the package.json the node_modules on your computer will be out of date.
     - FIX:  In terminal run npm install
-2. If 
+2. If the gh-pages branch is accidentaly removed or the git hub page connection is broken.
+    - To reconnect the git hub page run npm run deploy. 
+    - To re-deploy gh-branch as long as in your CI/Build you have the gh-deploy script connected you just have to push a changed to the main branch and this will deploy the gh-branch automatically for you. 
 
