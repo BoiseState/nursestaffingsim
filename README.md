@@ -28,7 +28,7 @@ For this project we deployed our site with git-hub pages.
 
 To do that you enable git-hub pages in the repo Settings -> Pages 
 
-Initially it will have the Source of your website on NONE after following the deployment steps the source will be gh-pages. In our case we are using a gh-pages branch that contains the stand alone contents of our website (i.e. The root folder that contails the index.html and the css styles). If in the future there was a desire to change where the website is hosted all one has to do is take a copy of the gh-pages branch. 
+Initially it will have the Source of your website on NONE after following the deployment steps the source will be gh-pages. In our case we are using a gh-pages branch that contains the stand alone contents of our website (i.e. The root folder that contains the index.html and the css styles). If in the future there was a desire to change where the website is hosted all one has to do is take a copy of the gh-pages branch. 
 
 Once the setting is turned on you have to include in your package.json.
 
@@ -43,10 +43,8 @@ The final step is to run:
 
 For more information and steps as to how to include gh-page in deploy.yml visit: https://medium.com/swlh/deploy-create-react-app-to-github-pages-using-github-actions-4e95ae7fd65f
 
-
 # Running The Built in React Test Suite
 1. npm run test
-
 
 USAGE:
 
@@ -72,11 +70,9 @@ For example, to set a breakpoint in Scenario.js, expand "localhost" --> expand t
     - To re-deploy gh-branch as long as in your CI/Build you have the gh-deploy script connected. Push a changed to the main branch and this will deploy the gh-branch automatically for you. 
 
 # Resources
--	React-Bootstrap documentation: https://react-bootstrap.github.io/getting-started/introduction/
+-   React-Bootstrap documentation: https://react-bootstrap.github.io/getting-started/introduction/
 
-- VS Code extention: ES7 REact/Redux/GraphQL/React-Native snippets
-
-
+- VS Code extension: ES7 React/Redux/GraphQL/React-Native snippets
 
 
 
