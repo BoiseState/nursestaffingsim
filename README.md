@@ -23,6 +23,27 @@ To learn more visit: reactjs.org
 4. npm start
  - npm start will start the development server: http://localhost:3000/. This provides a way to see the changes you make and do some manual testing before publishing the changes to main. 
 
+# Deployment 
+For this project we deployed our site with git-hub pages. 
+
+To do that you enable git-hub pages in the repo Settings -> Pages 
+
+Initially it will have the Source of your website on NONE after following the deployment steps the source will be gh-pages. In our case we are using a gh-pages branch that contains the stand alone contents of our website (i.e. The root folder that contails the index.html and the css styles). If in the future there was a desire to change where the website is hosted all one has to do is take a copy of the gh-pages branch. 
+
+Once the setting is turned on you have to include in your package.json.
+
+** Note after adding to your package.json you will have to update your node_module folder by removing it and then using npm install.
+
+<i>"deploy": "gh-pages -d build"</i> 
+
+This will finish hooking up the requirements for the git-hub page. 
+The final step is to run: 
+
+<i> npm run deploy </i>
+
+For more information and steps as to how to include gh-page in deploy.yml visit: https://medium.com/swlh/deploy-create-react-app-to-github-pages-using-github-actions-4e95ae7fd65f
+
+
 # Running The Built in React Test Suite
 1. npm run test
 
