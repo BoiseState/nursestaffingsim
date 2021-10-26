@@ -2,6 +2,8 @@ import React from 'react';
 import { Form, InputGroup, Card } from "react-bootstrap";
 import './Scenario.css';
 import StaffAdd from './StaffAdd'
+import StaffList from './StaffList'
+import Result from './Result'
 
 class Scenario extends React.Component {
     constructor(props) {
@@ -15,8 +17,8 @@ class Scenario extends React.Component {
             info:{
             	   unit:"",
             	   HPPD:"",
-                bedUnit:"",
-                census: 100,
+                   bedUnit:"",
+                   census: 100,
                }
         };
     }
@@ -38,6 +40,11 @@ class Scenario extends React.Component {
     //     }
 
     // }
+
+   
+    handleStaffChange = (staff) => {
+        this.setState({staffs: staff});
+    }
 
 
     changeHandler = (event) => {
@@ -151,8 +158,9 @@ class Scenario extends React.Component {
                     </Card.Body>
                 </Card>
 
-                <StaffAdd staffs={this.state.staffs}  results={this.state.results} staffNum={this.state.staffNum} setInfoStaffNum={this.setInfoStaffNum}/>
-
+                <StaffAdd onStaffChange={this.handleStaffChange} staffs={this.state.staffs}  results={this.state.results} staffNum={this.state.staffNum} setInfoStaffNum={this.setInfoStaffNum}/>
+                <Result staffNum={this.state.staffNum} staffs={this.state.staffs} info={this.state.info}   ></Result>
+                <StaffList staffs={this.state.staffs}></StaffList>
             </div>
         );
     }

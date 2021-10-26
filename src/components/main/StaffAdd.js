@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Container, Form, Row, Col } from "react-bootstrap";
+import { Modal, Button, Container, Form} from "react-bootstrap";
 import './StaffAdd.css';
 
 // we're getting a warning when you open the modal. I believe this is because there are things in here that are outside the modal. At least in Angular, the modal opening is
@@ -26,20 +26,18 @@ import './StaffAdd.css';
 // also noticing another bug where the url is holding the value of the selected items in the modal. We should look at how to fix this in the next sprint because it might look different after the refactor
 class StaffAdd extends React.Component
 {
-	
-	state=
-	{
-		   
-		   staffs: [],
+	constructor(props) {
+        super(props);
+        this.state = {
+           staffs: [],
 		   results:"",
 		   open:false,
 		   show:false,
 		   staffNum:"The Results:"
-	}
+        };
+    }
 	
-	 
-	 
-	  handleAdd = (value) =>
+	handleAdd = (value) =>
 	  {
 		  value.preventDefault();
 		  const formData = new FormData(value.target),
@@ -58,6 +56,7 @@ class StaffAdd extends React.Component
 		  let staff = {id:uuid,num:formDataObj.quantity,type:formDataObj.staffType,shift:formDataObj.shift};
 		  let staffs=[...this.state.staffs,staff]
 		  this.setState({staffs:staffs});
+		  this.props.onStaffChange(staffs);  //Updates the Scenario's state variable.
 		  this.handleClose();
 		  this.setResult(staffs);
 	  }
@@ -73,6 +72,7 @@ class StaffAdd extends React.Component
 	 	 	
 	 	 }
 	 	 this.setState({staffs:staffs});
+		 this.props.onStaffChange(staffs);  //Updates the Scenario's state variable.
 		 this.setResult(staffs);
 	 }
 	
@@ -102,7 +102,8 @@ class StaffAdd extends React.Component
 			  staffs = staffs.filter(item => item.id!==id )
 		 }
 		 
-	 	 this.setState({staffs:staffs});
+	 	this.setState({staffs:staffs});
+		this.props.onStaffChange(staffs);   //Updates the Scenario's state variable.
 		this.setResult(staffs);
 	 }
 	
@@ -144,13 +145,7 @@ class StaffAdd extends React.Component
 	}
 	
 	  render () {
-		const staffList = this.state.staffs.map((staff) =>
-					<Row key={staff.id} id={staff.id} className="border">
-						<Col className="border">{staff.num}</Col>
-						<Col className="border">{staff.type}</Col>
-						<Col className="border">{staff.shift}</Col>
-					</Row>			
-		  );
+		
 
 		let qtyVals = [];
 		for(let i=1; i<=50; i++){
@@ -163,19 +158,12 @@ class StaffAdd extends React.Component
 	    return (
 		     <Container id="resultsCont" fluid>
 				<Button variant="primary" onClick={this.handleShow}>Add new Staff</Button>
-				<Container id="staffCont">
-					{staffList.length > 0 ? <Row className="border">
-						<Col className="border">Quantity</Col>
-						<Col className="border">Staff Type</Col>
-						<Col className="border">Shift Type</Col>
-					</Row> : false}
-					{staffList}	
-				</Container>
+				
 				<div id="results">
 					<p>{this.props.staffNum}</p  >
 					<p>{this.props.results}</p >
 			  	</div>
-				<Modal show={this.state.show} onHide={this.handleClose}>
+				<Modal animation={false} show={this.state.show} onHide={this.handleClose}>
 				<Form onSubmit={ this.handleAdd }>
 					<Modal.Header>
 						<Modal.Title>Select your staff member</Modal.Title>
@@ -193,7 +181,7 @@ class StaffAdd extends React.Component
 							<Form.Group className="mb-3" controlId="shiftType" required>
 								<Form.Label>Shift Type</Form.Label>
 								<Form.Control as="select" name="shift" className="caret">
-									<option value="12 Hours Day">12 Hours Day</option>
+									<option value="12">12 Hours Day</option>
 									<option value="12 Hours Night">12 Hours Night</option>
 									<option value="8 Hours Day">8 Hours Day</option>
 									<option value="8 Hours Evening">8 Hours Evening</option>
