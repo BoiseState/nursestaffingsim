@@ -62,42 +62,43 @@ class StaffAdd extends React.Component {
 		this.props.onStaffChange(staffs);  //Updates the Scenario's state variable.
 		this.handleClose();
 	}
-	addNum = (id) => {
-		let staffs = this.state.staffs;
-		for (var i = 0; i < staffs.length; i++) {
-			if (staffs[i].id === id) {
-				staffs[i].num++;
-			}
 
-		}
-		this.setState({ staffs: staffs });
-		this.props.onStaffChange(staffs);  //Updates the Scenario's state variable.
-	}
+	// addNum = (id) => {
+	// 	let staffs = this.state.staffs;
+	// 	for (var i = 0; i < staffs.length; i++) {
+	// 		if (staffs[i].id === id) {
+	// 			staffs[i].num++;
+	// 		}
 
-	reduceNum = (e, id) => {
-		let staffs = this.state.staffs;
+	// 	}
+	// 	this.setState({ staffs: staffs });
+	// 	this.props.onStaffChange(staffs);  //Updates the Scenario's state variable.
+	// }
 
-		let isDelete = false;
-		for (var i = 0; i < staffs.length; i++) {
-			if (staffs[i].id === id) {
-				if (e >= 1) {
-					staffs[i].num = e;
+	// reduceNum = (e, id) => {
+	// 	let staffs = this.state.staffs;
 
-				} else {
-					isDelete = true;
-				}
-				break;
-			}
+	// 	let isDelete = false;
+	// 	for (var i = 0; i < staffs.length; i++) {
+	// 		if (staffs[i].id === id) {
+	// 			if (e >= 1) {
+	// 				staffs[i].num = e;
 
-		}
-		if (isDelete) {
-			staffs = staffs.filter(item => item.id !== id)
-		}
+	// 			} else {
+	// 				isDelete = true;
+	// 			}
+	// 			break;
+	// 		}
 
-		this.setState({ staffs: staffs });
-		this.props.onStaffChange(staffs);   //Updates the Scenario's state variable.
+	// 	}
+	// 	if (isDelete) {
+	// 		staffs = staffs.filter(item => item.id !== id)
+	// 	}
 
-	}
+	// 	this.setState({ staffs: staffs });
+	// 	this.props.onStaffChange(staffs);   //Updates the Scenario's state variable.
+
+	// }
 
 
 
