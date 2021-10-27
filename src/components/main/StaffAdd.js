@@ -36,6 +36,7 @@ class StaffAdd extends React.Component {
 		};
 	}
 
+	//Used to generate an ID for each Staff entry.  We might want ID later to manipulate the staffs collection.
 	generateUUID = () => {
 		var s = [];
 		var hexDigits = "0123456789abcdef";
@@ -54,7 +55,6 @@ class StaffAdd extends React.Component {
 			formDataObj = Object.fromEntries(formData.entries())
 
 		var uuid = this.generateUUID();
-		console.log(uuid);
 
 		let staff = { id: uuid, num: formDataObj.quantity, type: formDataObj.staffType, shift: formDataObj.shift };
 		let staffs = [...this.state.staffs, staff]

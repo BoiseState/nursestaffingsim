@@ -4,9 +4,11 @@ import './StaffList.css';
 
 class StaffList extends React.Component {
    
+  
+
     render() {
 
-        const staffList = this.props.staffs.map((staff) =>
+        const staffList = this.props.staffs.map((staff, i) =>
             <Row key={staff.id} id={staff.id} className="border">
                 <Col className="border">{staff.num}</Col>
                 <Col className="border">{staff.type}</Col>
