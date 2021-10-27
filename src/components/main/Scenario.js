@@ -17,7 +17,7 @@ class Scenario extends React.Component {
             staffs: [],
             info:{
             	   unit:"St Lukes",
-            	   HPPD:"333",
+            	   HPPD:"10",
                    bedUnit:"22",
                    census: 100,
                }
@@ -28,6 +28,11 @@ class Scenario extends React.Component {
 
     handleStaffChange = (staff) => {
         this.setState({staffs: staff});
+    }
+    handleStaffAdd = (staffItem)=>{
+        let staffCopy = [...this.state.staffs, staffItem];
+        this.setState({staffs: staffCopy});
+
     }
 
     handleInfoChange = (info) => {
@@ -86,7 +91,7 @@ class Scenario extends React.Component {
                     </Card.Body>
                 </Card>
 
-                <StaffAdd onStaffChange={this.handleStaffChange} staffs={this.state.staffs}  />
+                <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />
                 <Result staffs={this.state.staffs} info={this.state.info} ></Result>
                 <StaffList staffs={this.state.staffs} ></StaffList>
                 <RandomHPPDInfo  onInfoChange={this.handleInfoChange} />

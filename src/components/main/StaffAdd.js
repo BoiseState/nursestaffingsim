@@ -28,9 +28,6 @@ class StaffAdd extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			staffs: [],
-
-			
 			open: false,
 			show: false,
 		};
@@ -56,51 +53,13 @@ class StaffAdd extends React.Component {
 
 		var uuid = this.generateUUID();
 
-		let staff = { id: uuid, num: formDataObj.quantity, type: formDataObj.staffType, shift: formDataObj.shift };
-		let staffs = [...this.state.staffs, staff]
-		this.setState({ staffs: staffs });
-		this.props.onStaffChange(staffs);  //Updates the Scenario's state variable.
+		let staff = { id: uuid, quantity: formDataObj.quantity, type: formDataObj.staffType, shift: formDataObj.shift };
+
+		this.props.onStaffAdd(staff);
 		this.handleClose();
 	}
 
-	// addNum = (id) => {
-	// 	let staffs = this.state.staffs;
-	// 	for (var i = 0; i < staffs.length; i++) {
-	// 		if (staffs[i].id === id) {
-	// 			staffs[i].num++;
-	// 		}
-
-	// 	}
-	// 	this.setState({ staffs: staffs });
-	// 	this.props.onStaffChange(staffs);  //Updates the Scenario's state variable.
-	// }
-
-	// reduceNum = (e, id) => {
-	// 	let staffs = this.state.staffs;
-
-	// 	let isDelete = false;
-	// 	for (var i = 0; i < staffs.length; i++) {
-	// 		if (staffs[i].id === id) {
-	// 			if (e >= 1) {
-	// 				staffs[i].num = e;
-
-	// 			} else {
-	// 				isDelete = true;
-	// 			}
-	// 			break;
-	// 		}
-
-	// 	}
-	// 	if (isDelete) {
-	// 		staffs = staffs.filter(item => item.id !== id)
-	// 	}
-
-	// 	this.setState({ staffs: staffs });
-	// 	this.props.onStaffChange(staffs);   //Updates the Scenario's state variable.
-
-	// }
-
-
+	
 
 	handleClose = () => {
 		this.setState({ "show": false });
@@ -162,7 +121,7 @@ class StaffAdd extends React.Component {
 								Close
 							</Button>
 							<Button variant="primary" type="submit">
-								Submit
+								Add new Staff
 							</Button>
 						</Modal.Footer>
 					</Form>

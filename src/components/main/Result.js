@@ -41,7 +41,7 @@ class Result extends React.Component {
         for (var i = 0; i < staffs.length; i++) {
             //Do we need to check on stafftype Here?
             let shiftValue = this.getShiftValue(staffs[i].shift);
-            let quantity = parseInt(staffs[i].num);
+            let quantity = parseInt(staffs[i].quantity);
             
             totalHours += shiftValue * quantity;
         }

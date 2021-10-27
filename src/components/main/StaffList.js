@@ -10,12 +10,15 @@ class StaffList extends React.Component {
 
         const staffList = this.props.staffs.map((staff, i) =>
             <Row key={staff.id} id={staff.id} className="border">
-                <Col className="border">{staff.num}</Col>
+                <Col className="border">{staff.quantity}</Col>
                 <Col className="border">{staff.type}</Col>
                 <Col className="border">{staff.shift}</Col>
             </Row>
         );
         return (
+
+            
+            
             <Container id="staffCont">
                 {staffList.length > 0 ? <Row className="border">
                     <Col className="border">Quantity</Col>
