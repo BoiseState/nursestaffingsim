@@ -4,6 +4,7 @@ import './Scenario.css';
 import StaffAdd from './StaffAdd'
 import StaffList from './StaffList'
 import Result from './Result'
+import RandomHPPDInfo from './RandomHPPDInfo'
 
 class Scenario extends React.Component {
     constructor(props) {
@@ -15,12 +16,14 @@ class Scenario extends React.Component {
 			center:{"text-align":'center'},
             staffs: [],
             info:{
-            	   unit:"",
+            	   unit:"St Lukes",
             	   HPPD:"",
                    bedUnit:"",
                    census: 100,
                }
         };
+
+        this.changeHandler = this.changeHandler.bind(this);
     }
 
     //We are going to need to have alerts or errors so that we can test incorrect 
@@ -46,94 +49,41 @@ class Scenario extends React.Component {
         this.setState({staffs: staff});
     }
 
+    handleInfoChange = (info) => {
+        this.setState({info: info});
+    }
 
-    changeHandler = (event) => {
-        let name = event.target.name;
-        let val = event.target.value;
-        if (name !== 'unit') {
-            if (!(/^\+?[1-9][0-9]*$/.test(val))) {
-                alert("Only numbers(positive integers) can be entered");
-                return;
-            }
-        }
+    
+
+    changeHandler(event) {
+   // changeHandler = (event) => {
+        // let name = event.target.name;
+        // let val = event.target.value;
+        // if (name !== 'unit') {
+        //     if (val &&  !(/^\+?[1-9][0-9]*$/.test(val))) {
+        //         alert("Only numbers(positive integers) can be entered");
+        //         return;
+        //     }
+        // }
 
 
-        this.setInfo(name, val)
-        //this.setState({ [name]: val }, () =>console.log(this.state));
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+       // this.setState({"info.HPPD": value});
+        // this.setState({
+        //   [name]: value
+        // });
+        //https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react
+        this.setState(prevState => {
+            let info = Object.assign({}, prevState.info);  // creating copy of state variable info
+            info[name] = value;                     // update the name property, assign a new value                 
+            return { info };                                 // return new object info object
+          })
+        
     }
 
 	
-	calculation = (info,num) =>
-    {
-
-            if (info.bedUnit !== '' && info.census !== '' && info.HPPD !== '')
-            {
-
-                let result = parseInt(info.bedUnit) + parseInt(info.census) + parseInt(info.HPPD);
-                console.log(num + ":" + result)
-
-                if (num <= 0)
-                {
-                    this.setState({ "staffNum": "The Results:" + result });
-                }
-
-                else
-                {
-                    num = result + num;
-                    this.setState({ "staffNum": "The Results:" + num });
-                }
-
-            }
-
-	}
-	
-	setInfo = (name,val) =>
-	{
-		let info=this.state.info;
-		if(name==='unit')
-		{
-			info.unit=val;
-		}else if(name==='HPPD')
-		{
-			info.HPPD=val;
-		}else if(name==='census')
-		{
-			info.census=val;
-		}else if(name==='bedUnit')
-		{
-			info.bedUnit=val;
-		}
-		this.setState({info:info});
-		this.calculation(info,this.state.num);
-	}
-	setInfoStaffNum = (num) =>
-	{
-		this.setState({"num":num});
-		this.calculation(this.state.info,num);
-	}
-
-	
-	random = (Min,Max) =>{
-		var Range = Max - Min;   
-		var Rand = Math.random();   
-		return (Min + Math.round(Rand * Range));
-	}
-	handleRandom = () =>
-	{
-		const num1 = this.random(8,24);
-		var a=document.getElementById("HPPD");
-        a.value=num1;
-		this.setInfo("HPPD",num1);	
-		
-		const num2 = this.random(1,100);
-		a=document.getElementById("census");
-        a.value=num2;
-	    this.setInfo("census",num2)	;
-		const num3 = this.random(10,1000);
-		a=document.getElementById("bedUnit");
-        a.value=num3;
-		this.setInfo("bedUnit",num3)	;
-    }
 
     render() {
         return (
@@ -145,22 +95,23 @@ class Scenario extends React.Component {
                         <Form>
                             <InputGroup size="sm" className="mb-3">
                                 <p>The hospital unit is</p>
-                                <input type='text' name='unit' data-testid="unit-id" onChange={this.changeHandler.bind(this)} />
+                                <input type='text' name='unit' value={this.state.info.unit} data-testid="unit-id" onChange={this.changeHandler} />
                                 <p>and the HPPD is</p>
-                                <input type='text' name="HPPD" data-testid="hppd-id" id="HPPD" onChange={this.changeHandler.bind(this)} />
+                                <input type='text' name="HPPD" value={this.state.info.HPPD} data-testid="hppd-id" id="HPPD" onChange={this.changeHandler} />
                                 <p>. You have</p>
-                                <input type='text' name="bedUnit" data-testid="numbeds-id" onChange={this.changeHandler.bind(this)} id="bedUnit" />
+                                <input type='text' name="bedUnit" value={this.state.info.bedUnit} data-testid="numbeds-id" onChange={this.changeHandler} id="bedUnit" />
                                 <p>number of beds in your unit and your census is</p>
-                                <input type='text' name="census" data-testid="census-id" id="census" onChange={this.changeHandler.bind(this)} />
+                                <input type='text' name="census" value={this.state.info.census} data-testid="census-id" id="census" onChange={this.changeHandler} />
                                 <p>% full. Based off of this scenario, allocate your staffing resources.</p>
                             </InputGroup>
                         </Form>
                     </Card.Body>
                 </Card>
 
-                <StaffAdd onStaffChange={this.handleStaffChange} staffs={this.state.staffs}  results={this.state.results} staffNum={this.state.staffNum} setInfoStaffNum={this.setInfoStaffNum}/>
+                <StaffAdd onStaffChange={this.handleStaffChange} staffs={this.state.staffs}  />
                 <Result staffNum={this.state.staffNum} staffs={this.state.staffs} info={this.state.info}   ></Result>
-                <StaffList staffs={this.state.staffs}></StaffList>
+                <StaffList staffs={this.state.staffs} info={this.state.info}></StaffList>
+                <RandomHPPDInfo  onInfoChange={this.handleInfoChange} />
             </div>
         );
     }
