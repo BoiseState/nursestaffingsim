@@ -73,7 +73,7 @@ class Result extends React.Component {
 
         return (
             <div id="results">
-                <h1 class={ calc <0 ?"negCalc" : ""}>{calc.toFixed(0)}</h1>
+                <h1 className={ calc <0 ?"negCalc" : ""}>{calc.toFixed(0)}</h1>
             </div>
         );
     }
