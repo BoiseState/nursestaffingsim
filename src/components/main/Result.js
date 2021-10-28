@@ -74,7 +74,7 @@ class Result extends React.Component {
 
         return (
             <div id="results">
-                <h1>{calc}</h1>
+                <h1>{calc.toFixed(0)}</h1>
             </div>
         );
     }

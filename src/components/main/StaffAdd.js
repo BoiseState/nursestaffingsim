@@ -45,15 +45,40 @@ class StaffAdd extends React.Component {
 		s[8] = s[13] = s[18] = s[23] = "-";
 		return s.join("");
 	}
+	getShiftValue = (shiftString) => {
+        //considered changing shift to just be 12,...8 so parseint would just work
+        //but additional information from string i.e. day, night might be needed.
+        let shiftValue = 0;
+        switch (shiftString) {
+            case '12 Hours Day':
+                shiftValue = 12;
+                break;
+            case '12 Hours Night':
+                shiftValue = 12;
+                break;
+            case '8 Hours Day':
+                shiftValue = 8;
+                break;
+            case '8 Hours Evening':
+                shiftValue = 8;
+                break;
+            case '8 Hours Night':
+                shiftValue = 8;
+                break;
+            default:
+                shiftValue = 0;
+        }
 
+        return shiftValue;
+    }
 	handleAdd = (value) => {
 		value.preventDefault();
 		const formData = new FormData(value.target),
 			formDataObj = Object.fromEntries(formData.entries())
 
 		var uuid = this.generateUUID();
-
-		let staff = { id: uuid, quantity: formDataObj.quantity, type: formDataObj.staffType, shift: formDataObj.shift };
+		var shiftTotal = parseInt(formDataObj.quantity) * this.getShiftValue(formDataObj.shift);
+		let staff = { id: uuid, quantity: formDataObj.quantity, type: formDataObj.staffType, shift: formDataObj.shift, shiftTotal: shiftTotal };
 
 		this.props.onStaffAdd(staff);
 		this.handleClose();

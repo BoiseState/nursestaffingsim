@@ -30,6 +30,8 @@ class Scenario extends React.Component {
         this.setState({staffs: staff});
     }
     handleStaffAdd = (staffItem)=>{
+
+        console.log(staffItem);
         let staffCopy = [...this.state.staffs, staffItem];
         this.setState({staffs: staffCopy});
 
@@ -91,10 +93,10 @@ class Scenario extends React.Component {
                     </Card.Body>
                 </Card>
 
-                <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />
-                <Result staffs={this.state.staffs} info={this.state.info} ></Result>
-                <StaffList staffs={this.state.staffs} ></StaffList>
                 <RandomHPPDInfo  onInfoChange={this.handleInfoChange} />
+                <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />
+                <StaffList staffs={this.state.staffs} ></StaffList>
+                <Result staffs={this.state.staffs} info={this.state.info} ></Result>
             </div>
         );
     }
