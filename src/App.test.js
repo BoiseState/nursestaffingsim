@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 import Header from './components/header/Header.js';
 import Footer from './components/footer/Footer.js';
-import Main from './components/main/Main.js';
 import { act } from 'react-dom/test-utils';
+import Scenario from './components/main/Scenario';
 
 
 test('Main page renders', () => {
@@ -23,7 +23,7 @@ render(<Header />);
 });
 
 test('Scenario content renders', () => {
-  render(<Main />);
+  render(<Scenario />);
   const HeaderElement = screen.getByText(/allocate your staffing resources/i);
   expect(HeaderElement).toBeInTheDocument();
 });
