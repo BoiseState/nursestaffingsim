@@ -19,7 +19,7 @@ class RandomHPPDInfo extends React.Component {
         let randomBedUnit = this.random(10,1000);
 
         let info ={
-            unit:"Random Hospital",
+            unit:"Random Hospital Unit",
             HPPD: randomHPPD,
             bedUnit:randomBedUnit,
             census: randomCensus,

@@ -16,9 +16,9 @@ class Scenario extends React.Component {
 			center:{"text-align":'center'},
             staffs: [],
             info:{
-            	   unit:"St Lukes",
-            	   HPPD:"10",
-                   bedUnit:"22",
+            	   unit:"",
+            	   HPPD:"",
+                   bedUnit:"",
                    census: 100,
                }
         };

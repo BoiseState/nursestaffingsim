@@ -1,5 +1,4 @@
 import React from 'react';
-//import {  Row, Col } from "react-bootstrap";
 import './Result.css';
 
 class Result extends React.Component {

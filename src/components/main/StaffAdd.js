@@ -2,27 +2,6 @@ import React from 'react';
 import { Modal, Button, Container, Form } from "react-bootstrap";
 import './StaffAdd.css';
 
-// we're getting a warning when you open the modal. I believe this is because there are things in here that are outside the modal. At least in Angular, the modal opening is
-// triggered from another component (so once we refactor, should be triggered in Main.js), then only modal pieces are in  StaffAdd.js, and there's a listener on the close in
-// Main.js so once the modal is submitted, that data is passed back to Main.js
-// Here's the error message:
-// index.js:1 Warning: findDOMNode is deprecated in StrictMode. findDOMNode was passed an instance of Transition which is inside StrictMode. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node
-//     at div
-//     at Transition (http://localhost:3000/f21-angels-of-mercy/static/js/vendors~main.chunk.js:47205:30)
-//     at http://localhost:3000/f21-angels-of-mercy/static/js/vendors~main.chunk.js:10169:24
-//     at BackdropTransition
-//     at http://localhost:3000/f21-angels-of-mercy/static/js/vendors~main.chunk.js:44882:24
-//     at http://localhost:3000/f21-angels-of-mercy/static/js/vendors~main.chunk.js:11611:23
-//     at div
-//     at http://localhost:3000/f21-angels-of-mercy/static/js/vendors~main.chunk.js:9528:23
-//     at StaffAdd (http://localhost:3000/f21-angels-of-mercy/static/js/main.chunk.js:1429:5)
-//     at div
-//     at Scenario (http://localhost:3000/f21-angels-of-mercy/static/js/main.chunk.js:1057:5)
-//     at div
-//     at Main
-//     at div
-//     at App
-
 // also noticing another bug where the url is holding the value of the selected items in the modal. We should look at how to fix this in the next sprint because it might look different after the refactor
 class StaffAdd extends React.Component {
 	constructor(props) {
