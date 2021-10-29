@@ -4,12 +4,56 @@ import './StaffList.css';
 
 class StaffList extends React.Component {
    
-  
+    listAdd = (sf,index) =>{
+       let quantity = parseInt(this.props.staffs[sf].quantity)
+       let shiftTotal = parseInt(this.props.staffs[sf].shiftTotal)
+       let shift = parseInt(this.props.staffs[sf].shift)
+        quantity = quantity + 1
+
+        if (shift == 12) {
+            shiftTotal = parseInt(shiftTotal) + 12;
+        }else{
+            shiftTotal = parseInt(shiftTotal) + 8;
+        }
+       
+       if(quantity <= 100){
+            this.props.staffs[sf].quantity = quantity
+            this.props.staffs[sf].shiftTotal = shiftTotal
+            this.props.parent.getChildrenMsg(this.props.staffs)
+       }
+       
+    }
+
+    listSub = (sf,index) =>{
+       let quantity = parseInt(this.props.staffs[sf].quantity)
+       let shiftTotal = parseInt(this.props.staffs[sf].shiftTotal)
+       let shift = parseInt(this.props.staffs[sf].shift)
+        quantity = quantity - 1;
+
+        if (shift == 12) {
+            shiftTotal = parseInt(shiftTotal) - 12;
+        }
+        else {
+            shiftTotal = parseInt(shiftTotal) - 8;
+        }
+
+       if(quantity <= 0){
+            this.props.staffs.splice(sf,1)
+       }else{
+            this.props.staffs[sf].quantity = quantity
+            this.props.staffs[sf].shiftTotal = shiftTotal
+       }
+       this.props.parent.getChildrenMsg(this.props.staffs)
+    }
 
     render() {
 
         const staffList = this.props.staffs.map((staff, i) =>
             <Row key={staff.id} id={staff.id} className="border">
+                <Col className="border">
+                    <text className="btext" onClick={this.listAdd.bind(staff,i)}>+</text> 
+                    <text className="btext2" onClick={this.listSub.bind(staff,i)}>-</text>
+                </Col>
                 <Col className="border">{staff.type}</Col>
                 <Col className="border">{staff.quantity}</Col>
                 <Col className="border">{staff.shift}</Col>
@@ -23,6 +67,7 @@ class StaffList extends React.Component {
             
             <Container id="staffCont">
                 {staffList.length > 0 ? <Row className="border">
+                    <Col className="border"></Col>
                     <Col className="border">Staff Type</Col>
                     <Col className="border">Quantity</Col>
                     <Col className="border">Shift Type</Col>

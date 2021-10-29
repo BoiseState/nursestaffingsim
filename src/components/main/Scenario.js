@@ -69,6 +69,11 @@ class Scenario extends React.Component {
     }
 
 	
+    getChildrenMsg = (result) => {
+        this.setState({
+            staffs: result
+        })
+    }
 
     render() {
         return (
@@ -95,7 +100,7 @@ class Scenario extends React.Component {
 
                 <RandomHPPDInfo  onInfoChange={this.handleInfoChange} />
                 <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />
-                <StaffList staffs={this.state.staffs} ></StaffList>
+                <StaffList staffs={this.state.staffs} parent={this}></StaffList>
                 <Result staffs={this.state.staffs} info={this.state.info} ></Result>
             </div>
         );
