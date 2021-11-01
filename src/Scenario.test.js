@@ -44,7 +44,6 @@ describe("<Scenario />", () => {
         expect(inputCensus).toBeInTheDocument();
         expect(inputCensus).toHaveAttribute("type", "number");
     
-        userEvent.type(inputCensus, "100");
         
         expect(screen.getByTestId("census-id")).toHaveValue(100);
     });
