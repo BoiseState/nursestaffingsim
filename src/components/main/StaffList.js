@@ -4,10 +4,10 @@ import './StaffList.css';
 
 class StaffList extends React.Component {
    
-    listAdd = (sf,index) =>{
-       let quantity = parseInt(this.props.staffs[sf].quantity)
-       let shiftTotal = parseInt(this.props.staffs[sf].shiftTotal)
-       let shift = parseInt(this.props.staffs[sf].shift)
+    listAdd = (index,sf) =>{
+        let quantity = parseInt(this.props.staffs[index].quantity)
+        let shiftTotal = parseInt(this.props.staffs[index].shiftTotal)
+        let shift = parseInt(this.props.staffs[index].shift)
         quantity = quantity + 1
 
         if (shift == 12) {
@@ -17,17 +17,17 @@ class StaffList extends React.Component {
         }
        
        if(quantity <= 100){
-            this.props.staffs[sf].quantity = quantity
-            this.props.staffs[sf].shiftTotal = shiftTotal
+           this.props.staffs[index].quantity = quantity
+           this.props.staffs[index].shiftTotal = shiftTotal
             this.props.parent.getChildrenMsg(this.props.staffs)
        }
        
     }
 
-    listSub = (sf,index) =>{
-       let quantity = parseInt(this.props.staffs[sf].quantity)
-       let shiftTotal = parseInt(this.props.staffs[sf].shiftTotal)
-       let shift = parseInt(this.props.staffs[sf].shift)
+    listSub = (index, sf) =>{
+        let quantity = parseInt(this.props.staffs[index].quantity)
+        let shiftTotal = parseInt(this.props.staffs[index].shiftTotal)
+        let shift = parseInt(this.props.staffs[index].shift)
         quantity = quantity - 1;
 
         if (shift == 12) {
@@ -38,10 +38,10 @@ class StaffList extends React.Component {
         }
 
        if(quantity <= 0){
-            this.props.staffs.splice(sf,1)
+           this.props.staffs.splice(index,1)
        }else{
-            this.props.staffs[sf].quantity = quantity
-            this.props.staffs[sf].shiftTotal = shiftTotal
+           this.props.staffs[index].quantity = quantity
+           this.props.staffs[index].shiftTotal = shiftTotal
        }
        this.props.parent.getChildrenMsg(this.props.staffs)
     }
