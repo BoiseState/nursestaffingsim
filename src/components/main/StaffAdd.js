@@ -84,9 +84,8 @@ class StaffAdd extends React.Component {
 		);
 
 		return (
-			<Container id="resultsCont" fluid>
-				<Button variant="primary" onClick={this.handleShow}>Add new Staff</Button>
-
+			<Container id="resultsCont" >
+                  <button type="button" className="btn btn-outline-primary pull-left" onClick={this.handleShow}>Add Staff</button>
 
 				<Modal animation={false} show={this.state.show} onHide={this.handleClose}>
 					<Form onSubmit={this.handleAdd}>

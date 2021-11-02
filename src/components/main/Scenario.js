@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, InputGroup, Card } from "react-bootstrap";
+//import { Form, InputGroup, Card } from "react-bootstrap";
 import './Scenario.css';
 import StaffAdd from './StaffAdd'
 import StaffList from './StaffList'
@@ -10,35 +10,35 @@ class Scenario extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            results:"",
-            staffNum:"The Results:",
-            num:"",
-			center:{"text-align":'center'},
+            results: "",
+            staffNum: "The Results:",
+            num: "",
+            center: { "text-align": 'center' },
             staffs: [],
-            info:{
-            	   unit:"",
-            	   HPPD:"",
-                   bedUnit:"",
-                   census: 100,
-               }
+            info: {
+                unit: "",
+                HPPD: "",
+                bedUnit: "",
+                census: 100,
+            }
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleStaffChange = (staff) => {
-        this.setState({staffs: staff});
+        this.setState({ staffs: staff });
     }
-    handleStaffAdd = (staffItem)=>{
+    handleStaffAdd = (staffItem) => {
 
         console.log(staffItem);
         let staffCopy = [...this.state.staffs, staffItem];
-        this.setState({staffs: staffCopy});
+        this.setState({ staffs: staffCopy });
 
     }
 
     handleInfoChange = (info) => {
-        this.setState({info: info});
+        this.setState({ info: info });
     }
 
 
@@ -51,9 +51,9 @@ class Scenario extends React.Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-        
+
         if (name !== 'unit') {
-            if (value &&  !(/^\+?[1-9][0-9]*$/.test(value))) {
+            if (value && !(/^\+?[1-9][0-9]*$/.test(value))) {
                 alert("Only numbers(positive integers) can be entered");
                 return;
             }
@@ -64,39 +64,55 @@ class Scenario extends React.Component {
             let info = Object.assign({}, prevState.info);   // creating copy of state variable info
             info[name] = value;                             // update the name property, assign a new value                 
             return { info };                                // return new object info object
-          })
-        
+        })
+
     }
 
-	
+
 
     render() {
         return (
             <div className="App">
 
-                <Card id="scenario">
-                    <Card.Header>Fill out the scenario fields based off of the in-class example.</Card.Header>
-                    <Card.Body>
-                        <Form>
-                            <InputGroup size="sm" className="mb-3">
-                                <p>The hospital unit is</p>
-                                <input type='text' name='unit' value={this.state.info.unit} data-testid="unit-id" onChange={this.handleInputChange} />
-                                <p>and the HPPD is</p>
-                                <input type='text' name="HPPD" value={this.state.info.HPPD} data-testid="hppd-id" id="HPPD" onChange={this.handleInputChange} />
-                                <p>. You have</p>
-                                <input type='text' name="bedUnit" value={this.state.info.bedUnit} data-testid="numbeds-id" onChange={this.handleInputChange} id="bedUnit" />
-                                <p>number of beds in your unit and your census is</p>
-                                <input type='text' name="census" value={this.state.info.census} data-testid="census-id" id="census" onChange={this.handleInputChange} />
-                                <p>% full. Based off of this scenario, allocate your staffing resources.</p>
-                            </InputGroup>
-                        </Form>
-                    </Card.Body>
-                </Card>
+                <div className="row mt-5">
+                    <div className="col-sm-9">
+                        <form className="row">
 
-                <RandomHPPDInfo  onInfoChange={this.handleInfoChange} />
-                <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />
+                            <div className="mb-3">
+                                <label htmlFor="unit" className="form-label">Hospital unit</label>
+                                <input className="form-control" type="text" name="unit" id="unit" data-testid="unit-id" placeholder="Hospital Unit" onChange={this.handleInputChange} />
+                            </div>
+
+                            <div className="col-sm-4">
+                                <label htmlFor="HPPD" className="form-label">HPPD</label>
+                                <input className="form-control" type="text" name="HPPD" id="HPPD" data-testid="hppd-id" placeholder="HPPD" onChange={this.handleInputChange} />
+                            </div>
+
+                            <div className="col-sm-4">
+                                <label htmlFor="bedUnit" className="form-label">Number of beds</label>
+                                <input className="form-control" type="text" name="bedUnit" id="bedUnit" data-testid="numbeds-id" placeholder="Number of Beds" onChange={this.handleInputChange} />
+                            </div>
+
+                            <div className="col-sm-4">
+                                <label htmlFor="census" className="form-label">Census</label>
+                                <input className="form-control" type="text" name="census" id="census" data-testid="census-id" placeholder="Census" onChange={this.handleInputChange} />
+                            </div>
+
+                            <div className="col-sm-4 mt-2 " id="resultsCont">
+                                <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />
+                            </div>
+                            <div className="col-sm-4 mt-2 " id="resultsCont">
+                                <RandomHPPDInfo onInfoChange={this.handleInfoChange} />
+                            </div>
+                        </form>
+                    </div>
+                    <div className="col-3">
+                        <Result staffs={this.state.staffs} info={this.state.info} ></Result>
+                    </div>
+
+                </div>
+
                 <StaffList staffs={this.state.staffs} ></StaffList>
-                <Result staffs={this.state.staffs} info={this.state.info} ></Result>
             </div>
         );
     }
