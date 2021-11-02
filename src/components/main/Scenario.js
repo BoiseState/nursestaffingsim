@@ -80,31 +80,34 @@ class Scenario extends React.Component {
 
                             <div className="mb-3">
                                 <label htmlFor="unit" className="form-label">Hospital unit</label>
-                                <input className="form-control" type="text" name="unit" id="unit" data-testid="unit-id" placeholder="Hospital Unit" onChange={this.handleInputChange} />
+                                <input className="form-control" type="text" name="unit" id="unit" data-testid="unit-id" placeholder="Hospital Unit" onChange={this.handleInputChange} value={this.state.info.unit} />
                             </div>
 
                             <div className="col-sm-4">
                                 <label htmlFor="HPPD" className="form-label">HPPD</label>
-                                <input className="form-control" type="text" name="HPPD" id="HPPD" data-testid="hppd-id" placeholder="HPPD" onChange={this.handleInputChange} />
+                                <input className="form-control" type="text" name="HPPD" id="HPPD" data-testid="hppd-id" placeholder="HPPD" onChange={this.handleInputChange} value={this.state.info.HPPD}/>
                             </div>
 
                             <div className="col-sm-4">
                                 <label htmlFor="bedUnit" className="form-label">Number of beds</label>
-                                <input className="form-control" type="text" name="bedUnit" id="bedUnit" data-testid="numbeds-id" placeholder="Number of Beds" onChange={this.handleInputChange} />
+                                <input className="form-control" type="text" name="bedUnit" id="bedUnit" data-testid="numbeds-id" placeholder="Number of Beds" onChange={this.handleInputChange} value={this.state.info.bedUnit}/>
                             </div>
 
                             <div className="col-sm-4">
                                 <label htmlFor="census" className="form-label">Census</label>
-                                <input className="form-control" type="text" name="census" id="census" data-testid="census-id" placeholder="Census" onChange={this.handleInputChange} />
+                                <input className="form-control" type="text" name="census" id="census" data-testid="census-id" placeholder="Census" onChange={this.handleInputChange} value={this.state.info.census}/>
                             </div>
 
-                            <div className="col-sm-4 mt-2 " id="resultsCont">
+                        </form>
+                        <div className="row">
+                            <div className="col-4 mt-2 " id="resultsCont">
                                 <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />
                             </div>
-                            <div className="col-sm-4 mt-2 " id="resultsCont">
+                            <div className="col-4 mt-2 ">
                                 <RandomHPPDInfo onInfoChange={this.handleInfoChange} />
                             </div>
-                        </form>
+                        </div>
+
                     </div>
                     <div className="col-3">
                         <Result staffs={this.state.staffs} info={this.state.info} ></Result>
