@@ -75,47 +75,54 @@ class Scenario extends React.Component {
             <div className="App">
 
                 <div className="row mt-5">
-                    <div className="col-sm-9">
+
+                     <div className="col-md-3 col-sm-6 order-sm-last">
+                        <Result staffs={this.state.staffs} info={this.state.info} ></Result>
+                    </div>
+                    
+                    <div className="col-md-9 col-sm-6 order-sm-first">
                         <form className="row">
 
-                            <div className="mb-3">
+                            <div className="col-md-12">
                                 <label htmlFor="unit" className="form-label">Hospital unit</label>
                                 <input className="form-control" type="text" name="unit" id="unit" data-testid="unit-id" placeholder="Hospital Unit" onChange={this.handleInputChange} value={this.state.info.unit} />
                             </div>
 
-                            <div className="col-sm-4">
+                            <div className="col-md-4">
                                 <label htmlFor="HPPD" className="form-label">HPPD</label>
-                                <input className="form-control" type="text" name="HPPD" id="HPPD" data-testid="hppd-id" placeholder="HPPD" onChange={this.handleInputChange} value={this.state.info.HPPD}/>
+                                <input className="form-control" type="text" name="HPPD" id="HPPD" data-testid="hppd-id" placeholder="HPPD" onChange={this.handleInputChange} value={this.state.info.HPPD} />
                             </div>
 
-                            <div className="col-sm-4">
+                            <div className="col-md-4">
                                 <label htmlFor="bedUnit" className="form-label">Number of beds</label>
-                                <input className="form-control" type="text" name="bedUnit" id="bedUnit" data-testid="numbeds-id" placeholder="Number of Beds" onChange={this.handleInputChange} value={this.state.info.bedUnit}/>
+                                <input className="form-control" type="text" name="bedUnit" id="bedUnit" data-testid="numbeds-id" placeholder="Number of Beds" onChange={this.handleInputChange} value={this.state.info.bedUnit} />
                             </div>
 
-                            <div className="col-sm-4">
+                            <div className="col-md-4">
                                 <label htmlFor="census" className="form-label">Census</label>
-                                <input className="form-control" type="text" name="census" id="census" data-testid="census-id" placeholder="Census" onChange={this.handleInputChange} value={this.state.info.census}/>
+                                <input className="form-control" type="text" name="census" id="census" data-testid="census-id" placeholder="Census" onChange={this.handleInputChange} value={this.state.info.census} />
                             </div>
 
                         </form>
                         <div className="row">
-                            <div className="col-4 mt-2 " id="resultsCont">
+                            <div className="col-md-4 mt-4 " >
                                 <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />
                             </div>
-                            <div className="col-4 mt-2 ">
+                            <div className="col-md-4 mt-4 ">
                                 <RandomHPPDInfo onInfoChange={this.handleInfoChange} />
                             </div>
                         </div>
 
                     </div>
-                    <div className="col-3">
-                        <Result staffs={this.state.staffs} info={this.state.info} ></Result>
-                    </div>
+                    
+                    
 
                 </div>
-
-                <StaffList staffs={this.state.staffs} ></StaffList>
+                <div className="row mt-5">
+                    <div className="col-md-9">
+                        <StaffList staffs={this.state.staffs} ></StaffList>
+                    </div>
+                </div>
             </div>
         );
     }

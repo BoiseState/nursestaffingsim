@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Container, Form } from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
 import './StaffAdd.css';
 
 // also noticing another bug where the url is holding the value of the selected items in the modal. We should look at how to fix this in the next sprint because it might look different after the refactor
@@ -84,9 +84,9 @@ class StaffAdd extends React.Component {
 		);
 
 		return (
-			<Container id="resultsCont" >
-                  <button type="button" className="btn btn-outline-primary pull-left" onClick={this.handleShow}>Add Staff</button>
-
+            <div>  
+			<button type="button" className="btn btn-outline-primary" onClick={this.handleShow}>Add Staff</button>
+				
 				<Modal animation={false} show={this.state.show} onHide={this.handleClose}>
 					<Form onSubmit={this.handleAdd}>
 						<Modal.Header>
@@ -120,16 +120,16 @@ class StaffAdd extends React.Component {
 							</Form.Group>
 						</Modal.Body>
 						<Modal.Footer>
-							<Button variant="secondary" onClick={this.handleClose}>
+							<Button variant="outline-secondary" onClick={this.handleClose}>
 								Close
 							</Button>
-							<Button variant="primary" type="submit">
+							<Button variant="outline-primary" type="submit">
 								Add new Staff
 							</Button>
 						</Modal.Footer>
 					</Form>
 				</Modal>
-			</Container>
+				</div>  
 		);
 	}
 

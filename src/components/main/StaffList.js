@@ -18,10 +18,9 @@ class StaffList extends React.Component {
         );
 
         return (
-            <div className="row mt-5">
-                <div className="col-sm-9">
+           
                     <table className="table table-striped table-hover" id="staffCont">
-                        <thead className="table-dark">
+                        <thead className="table-BSU">
                             {staffList.length > 0 ? <tr>
                                 <th scope="col">Staff Type</th>
                                 <th scope="col">Quantity</th>
@@ -35,8 +34,7 @@ class StaffList extends React.Component {
                         </tbody>
 
                     </table>
-                </div>
-            </div>
+        
         );
     }
 }

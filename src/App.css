@@ -1,1 +1,4 @@
-
+.form-control:focus, .btn-outline-primary:focus {
+    border:none !important;
+    box-shadow: 0 0 0 0.15rem #d74309 !important;
+}
