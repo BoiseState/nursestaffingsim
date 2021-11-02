@@ -45,14 +45,11 @@ class Result extends React.Component {
 
 
     calculation = (info, staffs) => {
-        //ToDO:  Correct Algorithm needed.  This is a sipmple math check to see 
-        //       the values work.
 
-        let bedUnitVal = parseInt(info.bedUnit);
         let censusVal = parseInt(info.census);
         let HPPDVal = parseInt(info.HPPD);
 
-        let patients = bedUnitVal * (censusVal / 100);
+        let patients = censusVal;
 
         let totalHPPD = (patients * HPPDVal)
 
