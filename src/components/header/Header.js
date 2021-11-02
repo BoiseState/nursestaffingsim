@@ -15,7 +15,7 @@ class Header extends React.Component {
             <header>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container-fluid">
-                        <img src={logo} alt="Logo" height="50" data-testid="reload" onClick={this.onReload} />
+                        <img src={logo} alt="Logo" data-testid="reload" onClick={this.onReload} />
 
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
