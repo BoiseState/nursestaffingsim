@@ -10,7 +10,7 @@ class StaffList extends React.Component {
         let shift = parseInt(this.props.staffs[index].shift)
         quantity = quantity + 1
 
-        if (shift == 12) {
+        if (shift === 12) {
             shiftTotal = parseInt(shiftTotal) + 12;
         }else{
             shiftTotal = parseInt(shiftTotal) + 8;
@@ -30,7 +30,7 @@ class StaffList extends React.Component {
         let shift = parseInt(this.props.staffs[index].shift)
         quantity = quantity - 1;
 
-        if (shift == 12) {
+        if (shift === 12) {
             shiftTotal = parseInt(shiftTotal) - 12;
         }
         else {
