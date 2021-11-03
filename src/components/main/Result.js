@@ -55,14 +55,12 @@ class Result extends React.Component {
         let bedUnitVal = parseInt(info.bedUnit);
         let censusVal = parseInt(info.census);
         let HPPDVal = parseInt(info.HPPD);
-
-        let patients = bedUnitVal * (censusVal/100);
-        
-        let totalHPPD = (patients * HPPDVal)
-
+        //Perform calculations and store the results
+        let patients = bedUnitVal / (censusVal / 100);
+        let totalHPPD = patients * HPPDVal;
+        //Store the salary of the total number of employees
         let staffHours = this.getStaffHours(staffs);
-        
-
+        //Calculate whether the budget is exceeded
         return totalHPPD - staffHours;
 
     }
@@ -73,7 +71,7 @@ class Result extends React.Component {
 
         return (
             <div id="results">
-                <h1 class={ calc <0 ?"negCalc" : ""}>{calc.toFixed(0)}</h1>
+                <h1 className={calc < 0 ? "negCalc" : ""}>{calc.toFixed(0)}</h1>
             </div>
         );
     }
