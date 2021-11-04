@@ -93,7 +93,7 @@ class Scenario extends React.Component {
 
                 <RandomHPPDInfo  onInfoChange={this.handleInfoChange} />
                 <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />
-                <StaffList staffs={this.state.staffs} parent={this}></StaffList>
+                <StaffList staffs={this.state.staffs} onStaffChangeOnUpdate={this.handleStaffChange}></StaffList>
                 <Result staffs={this.state.staffs} info={this.state.info} ></Result>
             </div>
         );

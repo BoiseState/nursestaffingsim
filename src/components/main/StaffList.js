@@ -19,7 +19,7 @@ class StaffList extends React.Component {
        if(quantity <= 100){
            this.props.staffs[index].quantity = quantity
            this.props.staffs[index].shiftTotal = shiftTotal
-           this.props.parent.handleStaffChange(this.props.staffs)
+           this.props.onStaffChangeOnUpdate(this.props.staffs)
        }
        
     }
@@ -43,7 +43,7 @@ class StaffList extends React.Component {
            this.props.staffs[index].quantity = quantity
            this.props.staffs[index].shiftTotal = shiftTotal
        }
-        this.props.parent.handleStaffChange(this.props.staffs)
+        this.props.onStaffChangeOnUpdate(this.props.staffs)
     }
 
     render() {
