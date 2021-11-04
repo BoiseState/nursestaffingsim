@@ -4,7 +4,7 @@ import './StaffList.css';
 
 class StaffList extends React.Component {
    
-    listAdd = (index,sf) =>{
+    listAdd = (index) =>{
         let quantity = parseInt(this.props.staffs[index].quantity)
         let shiftTotal = parseInt(this.props.staffs[index].shiftTotal)
         let shift = parseInt(this.props.staffs[index].shift)
@@ -19,12 +19,12 @@ class StaffList extends React.Component {
        if(quantity <= 100){
            this.props.staffs[index].quantity = quantity
            this.props.staffs[index].shiftTotal = shiftTotal
-            this.props.parent.getChildrenMsg(this.props.staffs)
+           this.props.parent.handleStaffChange(this.props.staffs)
        }
        
     }
 
-    listSub = (index, sf) =>{
+    listSub = (index) =>{
         let quantity = parseInt(this.props.staffs[index].quantity)
         let shiftTotal = parseInt(this.props.staffs[index].shiftTotal)
         let shift = parseInt(this.props.staffs[index].shift)
@@ -43,7 +43,7 @@ class StaffList extends React.Component {
            this.props.staffs[index].quantity = quantity
            this.props.staffs[index].shiftTotal = shiftTotal
        }
-       this.props.parent.getChildrenMsg(this.props.staffs)
+        this.props.parent.handleStaffChange(this.props.staffs)
     }
 
     render() {
