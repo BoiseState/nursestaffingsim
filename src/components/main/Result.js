@@ -2,10 +2,6 @@ import React from 'react';
 import './Result.css';
 
 class Result extends React.Component {
-    // constructor(props) {
-    //     super(props);
-
-    //   }
 
     getShiftValue = (shiftString) => {
         //considered changing shift to just be 12,...8 so parseint would just work
@@ -41,7 +37,7 @@ class Result extends React.Component {
             //Do we need to check on stafftype Here?
             let shiftValue = this.getShiftValue(staffs[i].shift);
             let quantity = parseInt(staffs[i].quantity);
-            
+
             totalHours += shiftValue * quantity;
         }
         return totalHours;
@@ -49,19 +45,23 @@ class Result extends React.Component {
 
 
     calculation = (info, staffs) => {
-        //ToDO:  Correct Algorithm needed.  This is a sipmple math check to see 
-        //       the values work.
 
-        let bedUnitVal = parseInt(info.bedUnit);
         let censusVal = parseInt(info.census);
         let HPPDVal = parseInt(info.HPPD);
-        //Perform calculations and store the results
-        let patients = bedUnitVal / (censusVal / 100);
-        let totalHPPD = patients * HPPDVal;
-        //Store the salary of the total number of employees
+
+        let patients = censusVal;
+
+        let totalHPPD = (patients * HPPDVal)
+
         let staffHours = this.getStaffHours(staffs);
-        //Calculate whether the budget is exceeded
-        return totalHPPD - staffHours;
+
+        let retVal = totalHPPD - staffHours;
+        
+        if(retVal){
+            return retVal;
+        }
+
+        return "--";
 
     }
 
@@ -70,9 +70,17 @@ class Result extends React.Component {
         const calc = this.calculation(this.props.info, this.props.staffs);
 
         return (
-            <div id="results">
-                <h1 className={calc < 0 ? "negCalc" : ""}>{calc.toFixed(0)}</h1>
-            </div>
+
+                <div className="card">
+                    <div className="card-header">Hours for Day Remaining</div>
+                    <div id="results" className="card-body">
+                        <label>HPPD</label>
+                        <h1 className={calc < 0 ? "negCalc" : ""}>{calc !== "--" ? calc.toFixed(0) : calc}</h1>
+
+                    </div>
+                </div>
+
+
         );
     }
 }
