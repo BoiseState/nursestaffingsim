@@ -49,12 +49,12 @@ class StaffList extends React.Component {
 
         const staffList = this.props.staffs.map((staff, i) =>
             <tr key={staff.id} id={staff.id} >
-                <td >
+                <td>{staff.type}</td>
+                <td>
+                    {staff.quantity}  
                     <span className="btext" onClick={this.listAdd.bind(staff,i)}>+</span> 
                     <span className="btext2" onClick={this.listSub.bind(staff,i)}>-</span>
                 </td>
-                <td>{staff.type}</td>
-                <td>{staff.quantity}</td>
                 <td>{staff.shift}</td>
                 <td>{staff.shiftTotal}</td>
             </tr>
