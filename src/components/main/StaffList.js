@@ -1,35 +1,40 @@
 import React from 'react';
-import { Container, Row, Col } from "react-bootstrap";
 import './StaffList.css';
 
 class StaffList extends React.Component {
-   
-  
+
+
 
     render() {
 
         const staffList = this.props.staffs.map((staff, i) =>
-            <Row key={staff.id} id={staff.id} className="border">
-                <Col className="border">{staff.type}</Col>
-                <Col className="border">{staff.quantity}</Col>
-                <Col className="border">{staff.shift}</Col>
-                <Col className="border">{staff.shiftTotal}</Col>
-            </Row>
-        );
-        
-        return (
+            <tr key={staff.id} id={staff.id} >
+                <td>{staff.type}</td>
+                <td>{staff.quantity}</td>
+                <td>{staff.shift}</td>
+                <td>{staff.shiftTotal}</td>
+            </tr>
 
-            
-            
-            <Container id="staffCont">
-                {staffList.length > 0 ? <Row className="border">
-                    <Col className="border">Staff Type</Col>
-                    <Col className="border">Quantity</Col>
-                    <Col className="border">Shift Type</Col>
-                    <Col className="border">Shift Total</Col>
-                </Row> : false}
-                {staffList}
-            </Container>
+        );
+
+        return (
+           
+                    <table className="table table-striped table-hover" id="staffCont">
+                        <thead className="table-BSU">
+                            {staffList.length > 0 ? <tr>
+                                <th scope="col">Staff Type</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Shift Type</th>
+                                <th scope="col">Shift Total</th>
+                            </tr> : false}
+                        </thead>
+                        <tbody>
+
+                            {staffList}
+                        </tbody>
+
+                    </table>
+        
         );
     }
 }

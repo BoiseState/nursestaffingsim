@@ -10,3 +10,15 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.btn-outline-primary{
+
+    border-color: #0033A0 !important ;
+    color: #0033A0 !important;
+}
+
+.btn-outline-primary:hover{
+
+    background-color: #0033A0 !important ;
+    color: #fff !important;
+}
