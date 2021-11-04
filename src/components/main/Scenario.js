@@ -68,8 +68,6 @@ class Scenario extends React.Component {
 
     }
 
-
-
     render() {
         return (
             <div className="App">
@@ -120,7 +118,7 @@ class Scenario extends React.Component {
                 </div>
                 <div className="row mt-5">
                     <div className="col-md-9">
-                        <StaffList staffs={this.state.staffs} ></StaffList>
+                        <StaffList staffs={this.state.staffs} onStaffChangeOnUpdate={this.handleStaffChange} ></StaffList>
                     </div>
                 </div>
             </div>

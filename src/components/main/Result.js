@@ -71,7 +71,6 @@ class Result extends React.Component {
 
         return (
 
-
                 <div className="card">
                     <div className="card-header">Hours for Day Remaining</div>
                     <div id="results" className="card-body">
