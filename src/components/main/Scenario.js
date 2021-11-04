@@ -68,13 +68,6 @@ class Scenario extends React.Component {
         
     }
 
-	
-    getChildrenMsg = (result) => {
-        this.setState({
-            staffs: result
-        })
-    }
-
     render() {
         return (
             <div className="App">
