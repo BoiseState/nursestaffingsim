@@ -62,14 +62,14 @@ class StaffList extends React.Component {
                 <td>{staff.type}</td>
                 <td>
                     {staff.quantity} 
-                    <button type="btext1" className="btn btn-outline-primary" onClick={this.listAdd.bind(staff, i)}>&#10010;</button>
-                    <button type="btext2" className="btn btn-outline-primary" onClick={this.listSub.bind(staff, i)}>&#9866;</button>
+                    <button type="button" className="btn btn-outline-primary" onClick={this.listAdd.bind(staff, i)}>&#10010;</button>
+                    <button type="button" className="btn btn-outline-primary" onClick={this.listSub.bind(staff, i)}>&#9866;</button>
                 </td>
                 <td>{staff.shift}</td>
                 <td>{staff.shiftTotal}</td>
                 <td>
-                    <button type="btext3" className="btn btn-outline-primary" onClick={this.listDelete.bind(staff, i)}>&#128465;</button>
-                    <button type="btext4" className="btn btn-outline-primary" onClick={this.listEdit}>&#9999;</button>
+                    <button type="button" className="btn btn-outline-primary" onClick={this.listDelete.bind(staff, i)}>&#128465;</button>
+                    <button type="button" className="btn btn-outline-primary" onClick={this.listEdit}>&#9999;</button>
                 </td>
             </tr>
 
