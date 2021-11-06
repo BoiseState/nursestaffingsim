@@ -44,6 +44,16 @@ class StaffList extends React.Component {
        }
         this.props.onStaffChangeOnUpdate(this.props.staffs)
     }
+   
+    listDelete = (index) =>{
+        this.props.staffs.splice(index, 1)
+        this.props.onStaffChangeOnUpdate(this.props.staffs)
+    }
+   
+    listEdit = () =>
+    {
+        
+    }
 
     render() {
 
@@ -51,12 +61,16 @@ class StaffList extends React.Component {
             <tr key={staff.id} id={staff.id} >
                 <td>{staff.type}</td>
                 <td>
-                    {staff.quantity}  
-                    <span className="btext" onClick={this.listAdd.bind(staff,i)}>+</span> 
-                    <span className="btext2" onClick={this.listSub.bind(staff,i)}>-</span>
+                    {staff.quantity} 
+                    <button type="btext1" className="btn btn-outline-primary" onClick={this.listAdd.bind(staff, i)}>&#10010;</button>
+                    <button type="btext2" className="btn btn-outline-primary" onClick={this.listSub.bind(staff, i)}>&#9866;</button>
                 </td>
                 <td>{staff.shift}</td>
                 <td>{staff.shiftTotal}</td>
+                <td>
+                    <button type="btext3" className="btn btn-outline-primary" onClick={this.listDelete.bind(staff, i)}>&#128465;</button>
+                    <button type="btext4" className="btn btn-outline-primary" onClick={this.listEdit}>&#9999;</button>
+                </td>
             </tr>
 
         );
@@ -70,6 +84,7 @@ class StaffList extends React.Component {
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Shift Type</th>
                                 <th scope="col">Shift Total</th>
+                                <th scope="col">Function</th>
                             </tr> : false}
                         </thead>
                         <tbody>
