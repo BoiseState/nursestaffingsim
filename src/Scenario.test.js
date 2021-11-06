@@ -42,13 +42,15 @@ describe("<Scenario />", () => {
     });
 })
 
+// TODO: change this once we update census to match value of numbeds
 describe("<Scenario />", () => {
     test('Test census Input Field', () => {
         render(<Scenario />);
         const inputCensus = screen.getByTestId("census-id");
         expect(inputCensus).toBeInTheDocument();
         expect(inputCensus).toHaveAttribute("type", "text");
-    
+        
+        userEvent.type(census, "100");
         
         expect(screen.getByTestId("census-id")).toHaveValue("100");
     });
