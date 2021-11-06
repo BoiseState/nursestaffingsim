@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/f21-angels-of-mercy/static/css/main.2ab9a4b1.chunk.css",
-    "main.js": "/f21-angels-of-mercy/static/js/main.e77f5236.chunk.js",
-    "main.js.map": "/f21-angels-of-mercy/static/js/main.e77f5236.chunk.js.map",
+    "main.js": "/f21-angels-of-mercy/static/js/main.d846839f.chunk.js",
+    "main.js.map": "/f21-angels-of-mercy/static/js/main.d846839f.chunk.js.map",
     "runtime-main.js": "/f21-angels-of-mercy/static/js/runtime-main.32258974.js",
     "runtime-main.js.map": "/f21-angels-of-mercy/static/js/runtime-main.32258974.js.map",
     "static/css/2.a75f5a2c.chunk.css": "/f21-angels-of-mercy/static/css/2.a75f5a2c.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.a75f5a2c.chunk.css",
     "static/js/2.dada5c13.chunk.js",
     "static/css/main.2ab9a4b1.chunk.css",
-    "static/js/main.e77f5236.chunk.js"
+    "static/js/main.d846839f.chunk.js"
   ]
 }
