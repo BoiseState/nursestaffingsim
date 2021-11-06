@@ -62,8 +62,8 @@ class StaffList extends React.Component {
                 <td>{staff.type}</td>
                 <td>
                     {staff.quantity} 
-                    <button type="button" className="btn btn-outline-primary" onClick={this.listAdd.bind(staff, i)}>&#10010;</button>
-                    <button type="button" className="btn btn-outline-primary" onClick={this.listSub.bind(staff, i)}>&#9866;</button>
+                    <button type="button" className="btn btn-outline-primary" onClick={this.listAdd.bind(staff, i)}>&#10133;</button>
+                    <button type="button" className="btn btn-outline-primary" onClick={this.listSub.bind(staff, i)}>&#10134;</button>
                 </td>
                 <td>{staff.shift}</td>
                 <td>{staff.shiftTotal}</td>
