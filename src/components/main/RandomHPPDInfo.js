@@ -13,9 +13,9 @@ class RandomHPPDInfo extends React.Component {
     setRandomValues = () =>
       {
 
-        let randomHPPD = this.random(8,24);
-        let randomCensus = this.random(1,100);
-        let randomBedUnit = this.random(10,1000);
+        let randomHPPD = this.random(1,30);
+        let randomBedUnit = this.random(1,60);
+        let randomCensus = this.random(1,randomBedUnit);
 
         let info ={
             unit:"Random Hospital Unit",
