@@ -47,7 +47,7 @@ class Scenario extends React.Component {
         //Maybe look at using Formik library?
         //https://react-bootstrap.github.io/components/forms/#forms-validation-native
         //https://react-bootstrap.github.io/components/forms/#forms-validation-libraries
-
+        // TODO: will have to add in check to make sure that census doesn't exceed bedUnit
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -62,7 +62,10 @@ class Scenario extends React.Component {
         //https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react
         this.setState(prevState => {
             let info = Object.assign({}, prevState.info);   // creating copy of state variable info
-            info[name] = value;                             // update the name property, assign a new value                 
+            info[name] = value;                             // update the name property, assign a new value 
+            if (name === 'bedUnit') {                       // if bedUnit, census should default to same value
+                info['census'] = value;
+            }              
             return { info };                                // return new object info object
         })
 
