@@ -18,13 +18,13 @@ test('Footer renders', () => {
 
 test('Header renders', () => {
 render(<Header />);
-  const HeaderElement = screen.getByText(/BSU In-Patient Nurse Staffing Simulator/i);
+  const HeaderElement = screen.getByText(/Inpatient Nurse Staffing Simulator/i);
   expect(HeaderElement).toBeInTheDocument();
 });
 
 test('Scenario content renders', () => {
   render(<Scenario />);
-  const HeaderElement = screen.getByText(/allocate your staffing resources/i);
+  const HeaderElement = screen.getByText(/Hospital unit/i);
   expect(HeaderElement).toBeInTheDocument();
 });
 
