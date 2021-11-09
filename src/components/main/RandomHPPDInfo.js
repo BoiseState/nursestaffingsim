@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from "react-bootstrap";
 import './RandomHPPDInfo.css';
 
 class RandomHPPDInfo extends React.Component {
@@ -14,9 +13,9 @@ class RandomHPPDInfo extends React.Component {
     setRandomValues = () =>
       {
 
-        let randomHPPD = this.random(8,24);
-        let randomCensus = this.random(1,100);
-        let randomBedUnit = this.random(10,1000);
+        let randomHPPD = this.random(1,30);
+        let randomBedUnit = this.random(1,60);
+        let randomCensus = this.random(1,randomBedUnit);
 
         let info ={
             unit:"Random Hospital Unit",
@@ -34,12 +33,7 @@ class RandomHPPDInfo extends React.Component {
 
 
         return (
-            <div >
-                <Button variant="primary"  onClick={this.setRandomValues}>
-							Generate Random
-				</Button>
-                
-          </div>
+            <button type="button" className="btn btn-outline-primary" onClick={this.setRandomValues}>Random Scenario</button>
         );
     }
 }

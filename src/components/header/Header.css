@@ -1,6 +1,13 @@
-#header img {
-    height: 15%;
-    width: 15%;
+/*
+#header -> looking for id of header
+header -> looking for tag
+.bg-primary -> class name
+*/
+
+
+header img {
+    height: 50px;
+   
     cursor: pointer;
 }
 
@@ -10,8 +17,8 @@
     font-weight: bold;
 }
 
-#header {
-    background-color: #0033A0;
+header .bg-primary {
+    background-color: #0033A0 !important;
     padding: 2%;
 }
 
