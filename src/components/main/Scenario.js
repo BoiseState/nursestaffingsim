@@ -52,9 +52,10 @@ class Scenario extends React.Component {
         const value = target.value;
         const name = target.name;
 
+        let newErrors = {};
         // form validation
         if (name !== 'unit') {
-            const newErrors = this.findFormErrors(name, value);
+            newErrors = this.findFormErrors(name, value);
 
             // set errors in state if they exist
             if (Object.keys(newErrors).length > 0) {
@@ -66,6 +67,7 @@ class Scenario extends React.Component {
             }
         }
 
+
         //https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react
         this.setState(prevState => {
             let info = Object.assign({}, prevState.info);   // creating copy of state variable info
@@ -76,9 +78,10 @@ class Scenario extends React.Component {
             
             // clear error if it's been resolved
             let errors = Object.assign({}, prevState.errors);
-            if ( !!this.state.errors[name] ) {
+            if ( !!errors[name] && errors[name] !== newErrors[name]) {
                 errors[name] = null;
-            }           
+            }
+
             return { info, errors };                                // return new info and error objects
         })
 

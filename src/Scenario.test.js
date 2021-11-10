@@ -37,6 +37,17 @@ describe("<Scenario />", () => {
         expect(screen.getByTestId("numbeds-id")).toHaveValue(100);
     });
 
+    test('Test census updates after bed number updated', () => {
+        render(<Scenario />);
+        const inputNumbeds = screen.getByTestId("numbeds-id");
+        expect(inputNumbeds).toBeInTheDocument();
+        expect(inputNumbeds).toHaveAttribute("type", "number");
+    
+        userEvent.type(inputNumbeds, "100");
+        
+        expect(screen.getByTestId("numbeds-id")).toHaveValue(100);
+        expect(screen.getByTestId("census-id")).toHaveValue(100);
+    })
     
     test('Test census Input Field', () => {
         render(<Scenario />);
@@ -44,21 +55,15 @@ describe("<Scenario />", () => {
         expect(inputCensus).toBeInTheDocument();
         expect(inputCensus).toHaveAttribute("type", "number");
     
-        
-        expect(screen.getByTestId("census-id")).toHaveValue(100);
+        userEvent.type(inputCensus, "50");
+
+        expect(screen.getByTestId("census-id")).toHaveValue(50);
     });
 })
 
-/*Due to the refactoring going on I am not pushing the changes required in the scenario .js till the refactoring is merged.
-
-    Changed type to number on hppd, numbeds, and census input fields
-*/
-
 //Invalid tests
 describe("<Scenario />", () => {
-    test('Test Unit Input Field', () => {
-        const jsdomAlert = window.alert;  // remember the jsdom alert
-        window.alert = () => {};  // provide an empty implementation for window.alert
+    test('Test Negative HPPD Input Field', () => {
         render(<Scenario />);
 
         const inputUnit = screen.getByTestId("hppd-id");
@@ -68,12 +73,10 @@ describe("<Scenario />", () => {
         userEvent.type(inputUnit, "-12");
         
         expect(screen.getByTestId("hppd-id")).toHaveValue(-12);
-        expect(screen.findByText("Only positive integers can be entered"));
+        expect(screen.findByText("HPPD should be between 1 and 30"));
     });
 
-    test('Test Unit Input Field', () => {
-        const jsdomAlert = window.alert;  // remember the jsdom alert
-        window.alert = () => {};  // provide an empty implementation for window.alert
+    test('Test Negative Bed Unit Input Field', () => {
         render(<Scenario />);
 
         const inputUnit = screen.getByTestId("numbeds-id");
@@ -83,12 +86,10 @@ describe("<Scenario />", () => {
         userEvent.type(inputUnit, "-12");
         
         expect(screen.getByTestId("numbeds-id")).toHaveValue(-12);
-        expect(screen.findByText("Only positive integers can be entered"));
+        expect(screen.findByText("Number of beds should be between 1 and 60"));
     });
 
-    test('Test Unit Input Field', () => {
-        const jsdomAlert = window.alert;  // remember the jsdom alert
-        window.alert = () => {};  // provide an empty implementation for window.alert
+    test('Test Negative Census Input Field', () => {
         render(<Scenario />);
 
         const inputUnit = screen.getByTestId("census-id");
@@ -98,6 +99,23 @@ describe("<Scenario />", () => {
         userEvent.type(inputUnit, "-12");
         
         expect(screen.getByTestId("census-id")).toHaveValue(-12);
-        expect(screen.findByText("Only positive integers can be entered"));
+        expect(screen.findByText("Census cannot be less than 1"));
+    });
+
+    test('Test census higher than number of beds input', () => {
+        render(<Scenario />);
+
+        const censusInput = screen.getByTestId("census-id");
+        const numBedInput = screen.getByTestId("numbeds-id");
+        expect(censusInput).toBeInTheDocument();
+        expect(numBedInput).toBeInTheDocument();
+
+        userEvent.type(numBedInput, "10");
+        expect(screen.getByTestId("numbeds-id")).toHaveValue(10);
+
+        userEvent.clear(censusInput);
+        userEvent.type(censusInput, "15");
+        expect(screen.getByTestId("census-id")).toHaveValue(15);
+        expect(screen.findByText("Census cannot exceed the number of beds in a unit!"));
     });
 })
