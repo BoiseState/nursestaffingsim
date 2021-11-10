@@ -2,3 +2,14 @@
     border:none !important;
     box-shadow: 0 0 0 0.15rem #d74309 !important;
 }
+
+/* This code makes sure the type number input fields look and behave similarly to the 
+type text input files while still only allowing limited input.*/
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
