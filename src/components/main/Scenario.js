@@ -1,5 +1,5 @@
 import React from 'react';
-//import { Form, InputGroup, Card } from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 import './Scenario.css';
 import StaffAdd from './StaffAdd'
 import StaffList from './StaffList'
@@ -20,6 +20,11 @@ class Scenario extends React.Component {
                 HPPD: "",
                 bedUnit: "",
                 census: "",
+            },
+            errors: {
+                HPPD: "",
+                bedUnit: "",
+                census: ""
             }
         };
 
@@ -29,8 +34,8 @@ class Scenario extends React.Component {
     handleStaffChange = (staff) => {
         this.setState({ staffs: staff });
     }
-    handleStaffAdd = (staffItem) => {
 
+    handleStaffAdd = (staffItem) => {
         console.log(staffItem);
         let staffCopy = [...this.state.staffs, staffItem];
         this.setState({ staffs: staffCopy });
@@ -41,23 +46,27 @@ class Scenario extends React.Component {
         this.setState({ info: info });
     }
 
-
     handleInputChange(event) {
 
-        //Maybe look at using Formik library?
-        //https://react-bootstrap.github.io/components/forms/#forms-validation-native
-        //https://react-bootstrap.github.io/components/forms/#forms-validation-libraries
-        // TODO: will have to add in check to make sure that census doesn't exceed bedUnit
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.value;
         const name = target.name;
 
+        let newErrors = {};
+        // form validation
         if (name !== 'unit') {
-            if (value && !(/^\+?[1-9][0-9]*$/.test(value))) {
-                alert("Only numbers(positive integers) can be entered");
-                return;
+            newErrors = this.findFormErrors(name, value);
+
+            // set errors in state if they exist
+            if (Object.keys(newErrors).length > 0) {
+                this.setState(prevState => {
+                    let errors = Object.assign({}, prevState.errors);
+                    errors[name] = newErrors[name];
+                    return { errors };
+                })
             }
         }
+
 
         //https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react
         this.setState(prevState => {
@@ -65,9 +74,38 @@ class Scenario extends React.Component {
             info[name] = value;                             // update the name property, assign a new value 
             if (name === 'bedUnit') {                       // if bedUnit, census should default to same value
                 info['census'] = value;
-            }              
-            return { info };                                // return new object info object
+            }
+            
+            // clear error if it's been resolved
+            let errors = Object.assign({}, prevState.errors);
+            if ( !!errors[name] && errors[name] !== newErrors[name]) {
+                errors[name] = null;
+            }
+
+            return { info, errors };                                // return new info and error objects
         })
+
+    }
+
+    // https://dev.to/alecgrey/controlled-forms-with-front-and-backend-validations-using-react-bootstrap-5a2
+    findFormErrors = (name, val) => {
+        const newErrors = {}
+
+        if (name === 'HPPD') {
+            // HPPD errors
+            if (!val || val === '') newErrors.HPPD = 'HPPD cannot be blank!'
+            else if (val < 1 || val > 30) newErrors.HPPD = 'HPPD should be between 1 and 30'
+        } else if (name === 'bedUnit') {
+            // bedUnit errors
+            if (!val || val === '') newErrors.bedUnit = 'Number of beds cannot be blank!'
+            else if (val < 1 || val > 60) newErrors.bedUnit = 'Number of beds should be between 1 and 60'
+        } else if (name === 'census') {
+            // census errors
+            if (!val || val === '') newErrors.census = 'Census cannot be blank!'
+            else if (val < 1) newErrors.census = 'Census cannot be less than 1'
+            else if (val > this.state.info.bedUnit) newErrors.census = 'Census cannot exceed the number of beds in a unit!'
+        }
+        return newErrors;
 
     }
 
@@ -81,30 +119,34 @@ class Scenario extends React.Component {
                         <Result staffs={this.state.staffs} info={this.state.info} ></Result>
                     </div>
                     
+                    {/* Form has to be used instead of form because of validation feedback and bootstrap version used */}
                     <div className="col-md-9 col-sm-6 order-sm-first">
-                        <form className="row">
+                        <Form className="row" noValidate>
 
                             <div className="col-md-12">
-                                <label htmlFor="unit" className="form-label">Hospital unit</label>
-                                <input className="form-control" type="text" name="unit" id="unit" data-testid="unit-id" placeholder="Hospital Unit" onChange={this.handleInputChange} value={this.state.info.unit} />
+                                <Form.Label htmlFor="unit" >Hospital unit</Form.Label>
+                                <Form.Control type="text" name="unit" id="unit" data-testid="unit-id" placeholder="Hospital Unit" onChange={this.handleInputChange} value={this.state.info.unit} />
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="HPPD" className="form-label">HPPD</label>
-                                <input className="form-control" type="text" name="HPPD" id="HPPD" data-testid="hppd-id" placeholder="HPPD" onChange={this.handleInputChange} value={this.state.info.HPPD} />
+                                <Form.Label htmlFor="HPPD" >HPPD</Form.Label>
+                                <Form.Control type="number" name="HPPD" id="HPPD" data-testid="hppd-id" placeholder="HPPD" onChange={this.handleInputChange} value={this.state.info.HPPD} isInvalid={ !!this.state.errors.HPPD }/>
+                                <Form.Control.Feedback type="invalid" >{ this.state.errors.HPPD }</Form.Control.Feedback>
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="bedUnit" className="form-label">Number of beds</label>
-                                <input className="form-control" type="text" name="bedUnit" id="bedUnit" data-testid="numbeds-id" placeholder="Number of Beds" onChange={this.handleInputChange} value={this.state.info.bedUnit} />
+                                <Form.Label htmlFor="bedUnit">Number of beds</Form.Label>
+                                <Form.Control type="number" name="bedUnit" id="bedUnit" data-testid="numbeds-id" placeholder="Number of Beds" onChange={this.handleInputChange} value={this.state.info.bedUnit} isInvalid={ !!this.state.errors.bedUnit }/>
+                                <Form.Control.Feedback type="invalid" >{ this.state.errors.bedUnit }</Form.Control.Feedback>
                             </div>
 
                             <div className="col-md-4">
-                                <label htmlFor="census" className="form-label">Census</label>
-                                <input className="form-control" type="text" name="census" id="census" data-testid="census-id" placeholder="Census" onChange={this.handleInputChange} value={this.state.info.census} />
+                                <Form.Label htmlFor="census">Census</Form.Label>
+                                <Form.Control type="number" name="census" id="census" data-testid="census-id" placeholder="Census" onChange={this.handleInputChange} value={this.state.info.census} isInvalid={ !!this.state.errors.census }/>
+                                <Form.Control.Feedback type="invalid" >{ this.state.errors.census }</Form.Control.Feedback>
                             </div>
 
-                        </form>
+                        </Form>
                         <div className="row">
                             <div className="col-md-4 mt-4 " >
                                 <StaffAdd onStaffChange={this.handleStaffChange} onStaffAdd={this.handleStaffAdd} staffs={this.state.staffs} />

@@ -67,7 +67,7 @@ For example, to set a breakpoint in Scenario.js, expand "localhost" --> expand t
     - FIX:  Delete the node_modules folder and then run npm install
 2. If the gh-pages branch is accidentally removed or the git hub page connection is broken.
     - To reconnect the git hub page run npm run deploy. 
-    - To re-deploy gh-branch as long as in your CI/Build you have the gh-deploy script connected. Push a changed to the main branch and this will deploy the gh-branch automatically for you. 
+    - To re-deploy gh-branch as long as in your CI/Build you have the gh-deploy script connected. Push a change to the main branch and this will deploy the gh-branch automatically for you. 
 
 # Resources
 -   React-Bootstrap documentation: https://react-bootstrap.github.io/getting-started/introduction/
