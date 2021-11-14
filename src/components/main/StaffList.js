@@ -1,5 +1,6 @@
 import React from 'react';
 import './StaffList.css';
+import { Dash, Plus, Trash } from 'react-bootstrap-icons';
 
 class StaffList extends React.Component {
    
@@ -45,15 +46,25 @@ class StaffList extends React.Component {
         this.props.onStaffChangeOnUpdate(this.props.staffs)
     }
 
+    listRemove = (index) =>{
+
+        this.props.staffs.splice(index,1)
+        this.props.onStaffChangeOnUpdate(this.props.staffs)
+
+    }
+
     render() {
 
         const staffList = this.props.staffs.map((staff, i) =>
             <tr key={staff.id} id={staff.id} >
-                <td>{staff.type}</td>
+                <td >
+                    <Trash className="bTrash" onClick={this.listRemove.bind(staff,i)} />
+                </td>
+                <td >{staff.type}</td>
                 <td>
-                    {staff.quantity}  
-                    <span className="btext" onClick={this.listAdd.bind(staff,i)}>+</span> 
-                    <span className="btext2" onClick={this.listSub.bind(staff,i)}>-</span>
+                   <Plus className="bPlus" onClick={this.listAdd.bind(staff,i)}/> 
+                   {staff.quantity} 
+                   <Dash className="bDash" onClick={this.listSub.bind(staff,i)}/>
                 </td>
                 <td>{staff.shift}</td>
                 <td>{staff.shiftTotal}</td>
@@ -66,6 +77,7 @@ class StaffList extends React.Component {
                     <table className="table table-striped table-hover" id="staffCont">
                         <thead className="table-BSU">
                             {staffList.length > 0 ? <tr>
+                                <th></th>
                                 <th scope="col">Staff Type</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Shift Type</th>
