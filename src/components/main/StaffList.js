@@ -57,14 +57,14 @@ class StaffList extends React.Component {
 
         const staffList = this.props.staffs.map((staff, i) =>
             <tr key={staff.id} id={staff.id} >
-                <td className='icons'>
-                    <Trash onClick={this.listRemove.bind(staff,i)} className='delete-icon' />
+                <td >
+                    <Trash className="bTrash" onClick={this.listRemove.bind(staff,i)} />
                 </td>
                 <td >{staff.type}</td>
                 <td>
-                   <Plus  onClick={this.listAdd.bind(staff,i)}/> 
+                   <Plus className="bPlus" onClick={this.listAdd.bind(staff,i)}/> 
                    {staff.quantity} 
-                   <Dash  onClick={this.listSub.bind(staff,i)}/>
+                   <Dash className="bDash" onClick={this.listSub.bind(staff,i)}/>
                 </td>
                 <td>{staff.shift}</td>
                 <td>{staff.shiftTotal}</td>

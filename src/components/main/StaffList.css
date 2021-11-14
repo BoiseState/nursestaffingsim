@@ -1,5 +1,14 @@
+.bTrash {
+  cursor: pointer;
+}
+.bPlus {
+  cursor: pointer;
+}
+.bDash {
+  cursor: pointer;
+}
+
 .table-BSU {
   background-color: #0033a0 !important;
   color: #fff;
 }
-
