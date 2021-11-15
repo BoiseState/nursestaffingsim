@@ -68,8 +68,7 @@ class Result extends React.Component {
         <div className="card-header">Hours for Day Remaining</div>
         <div id="results" className="card-body">
           <label>HPPD</label>
-          <h1 data-testid="result" className={calc < 0 ? 'negCalc' : ''}>
-            {calc !== '--' ? calc.toFixed(0) : calc}
+          <h1 data-testid="result" className={calc < 0 ? 'negCalc' : ''}>{calc !== '--' ? calc.toFixed(0) : calc}
           </h1>
         </div>
       </div>
