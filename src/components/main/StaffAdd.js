@@ -85,9 +85,9 @@ class StaffAdd extends React.Component {
 
 		return (
             <div>  
-			<button type="button" className="btn btn-outline-primary" onClick={this.handleShow}>Add Staff</button>
+			<button type="button" className="btn btn-outline-primary" data-testid="addstaff-id" onClick={this.handleShow}>Add Staff</button>
 				
-				<Modal animation={false} show={this.state.show} onHide={this.handleClose}>
+				<Modal animation={false} show={this.state.show} data-testid="addStaffModal-id" onHide={this.handleClose}>
 					<Form onSubmit={this.handleAdd}>
 						<Modal.Header>
 							<Modal.Title>Select your staff member</Modal.Title>
@@ -120,11 +120,11 @@ class StaffAdd extends React.Component {
 							</Form.Group>
 						</Modal.Body>
 						<Modal.Footer>
-							<Button variant="outline-secondary" onClick={this.handleClose}>
+							<Button variant="outline-secondary" data-testid="cancelStaffAdd-id" onClick={this.handleClose}>
 								Close
 							</Button>
-							<Button variant="outline-primary" type="submit">
-								Add new Staff
+							<Button variant="outline-primary" data-testid = "addStaffConfirm-id" type="submit">
+								Add New Staff
 							</Button>
 						</Modal.Footer>
 					</Form>

@@ -33,7 +33,7 @@ class RandomHPPDInfo extends React.Component {
 
 
         return (
-            <button type="button" className="btn btn-outline-primary" onClick={this.setRandomValues}>Random Scenario</button>
+            <button type="button" className="btn btn-outline-primary" data-testid="random-id" onClick={this.setRandomValues}>Random Scenario</button>
         );
     }
 }
