@@ -5,6 +5,7 @@ import StaffAdd from './StaffAdd'
 import StaffList from './StaffList'
 import Result from './Result'
 import RandomHPPDInfo from './RandomHPPDInfo'
+import StaffBudget from './StaffBudget';
 
 class Scenario extends React.Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class Scenario extends React.Component {
             num: "",
             center: { "text-align": 'center' },
             staffs: [],
+            showBudget: false,
             info: {
                 unit: "",
                 HPPD: "",
@@ -75,16 +77,28 @@ class Scenario extends React.Component {
             if (name === 'bedUnit') {                       // if bedUnit, census should default to same value
                 info['census'] = value;
             }
-            
+
             // clear error if it's been resolved
             let errors = Object.assign({}, prevState.errors);
-            if ( !!errors[name] && errors[name] !== newErrors[name]) {
+            if (!!errors[name] && errors[name] !== newErrors[name]) {
                 errors[name] = null;
             }
 
             return { info, errors };                                // return new info and error objects
         })
 
+    }
+
+    // handle show budget check change
+    handleCheckChange = (event) => {
+        const target = event.target;
+        const value = target.checked;
+
+        this.setState(prevState => {
+            let showBudget = Object.assign({}, prevState.showBudget);
+            showBudget = value;
+            return { showBudget };
+        })
     }
 
     // https://dev.to/alecgrey/controlled-forms-with-front-and-backend-validations-using-react-bootstrap-5a2
@@ -115,10 +129,11 @@ class Scenario extends React.Component {
 
                 <div className="row mt-5">
 
-                     <div className="col-md-3 col-sm-6 order-sm-last">
+                    <div className="col-md-3 col-sm-6 order-sm-last">
                         <Result staffs={this.state.staffs} info={this.state.info} ></Result>
+                        <StaffBudget staffs={this.state.staffs} showBudget={this.state.showBudget}></StaffBudget>
                     </div>
-                    
+
                     {/* Form has to be used instead of form because of validation feedback and bootstrap version used */}
                     <div className="col-md-9 col-sm-6 order-sm-first">
                         <Form className="row" noValidate>
@@ -130,20 +145,20 @@ class Scenario extends React.Component {
 
                             <div className="col-md-4">
                                 <Form.Label htmlFor="HPPD" >HPPD</Form.Label>
-                                <Form.Control type="number" name="HPPD" id="HPPD" data-testid="hppd-id" placeholder="HPPD" onChange={this.handleInputChange} value={this.state.info.HPPD} isInvalid={ !!this.state.errors.HPPD }/>
-                                <Form.Control.Feedback type="invalid" >{ this.state.errors.HPPD }</Form.Control.Feedback>
+                                <Form.Control type="number" name="HPPD" id="HPPD" data-testid="hppd-id" placeholder="HPPD" onChange={this.handleInputChange} value={this.state.info.HPPD} isInvalid={!!this.state.errors.HPPD} />
+                                <Form.Control.Feedback type="invalid" >{this.state.errors.HPPD}</Form.Control.Feedback>
                             </div>
 
                             <div className="col-md-4">
                                 <Form.Label htmlFor="bedUnit">Number of beds</Form.Label>
-                                <Form.Control type="number" name="bedUnit" id="bedUnit" data-testid="numbeds-id" placeholder="Number of Beds" onChange={this.handleInputChange} value={this.state.info.bedUnit} isInvalid={ !!this.state.errors.bedUnit }/>
-                                <Form.Control.Feedback type="invalid" >{ this.state.errors.bedUnit }</Form.Control.Feedback>
+                                <Form.Control type="number" name="bedUnit" id="bedUnit" data-testid="numbeds-id" placeholder="Number of Beds" onChange={this.handleInputChange} value={this.state.info.bedUnit} isInvalid={!!this.state.errors.bedUnit} />
+                                <Form.Control.Feedback type="invalid" >{this.state.errors.bedUnit}</Form.Control.Feedback>
                             </div>
 
                             <div className="col-md-4">
                                 <Form.Label htmlFor="census">Census</Form.Label>
-                                <Form.Control type="number" name="census" id="census" data-testid="census-id" placeholder="Census" onChange={this.handleInputChange} value={this.state.info.census} isInvalid={ !!this.state.errors.census }/>
-                                <Form.Control.Feedback type="invalid" >{ this.state.errors.census }</Form.Control.Feedback>
+                                <Form.Control type="number" name="census" id="census" data-testid="census-id" placeholder="Census" onChange={this.handleInputChange} value={this.state.info.census} isInvalid={!!this.state.errors.census} />
+                                <Form.Control.Feedback type="invalid" >{this.state.errors.census}</Form.Control.Feedback>
                             </div>
 
                         </Form>
@@ -154,16 +169,24 @@ class Scenario extends React.Component {
                             <div className="col-md-4 mt-4 ">
                                 <RandomHPPDInfo onInfoChange={this.handleInfoChange} />
                             </div>
+                            <div className="col-md-4 mt-4">
+                                <Form.Check 
+                                    type="checkbox"
+                                    id="showBudget"
+                                    label="Show Budget"
+                                    name="showBudget"
+                                    data-testid="showbudget-id"
+                                    checked={this.state.showBudget}
+                                    onChange={this.handleCheckChange}
+                                />
+                            </div>
                         </div>
 
-                    </div>
-                    
-                    
-
-                </div>
-                <div className="row mt-5">
-                    <div className="col-md-9">
-                        <StaffList staffs={this.state.staffs} onStaffChangeOnUpdate={this.handleStaffChange} ></StaffList>
+                        <div className="row mt-5">
+                            {/* <div className="col-md-9"> */}
+                                <StaffList staffs={this.state.staffs} onStaffChangeOnUpdate={this.handleStaffChange} ></StaffList>
+                            {/* </div> */}
+                        </div>
                     </div>
                 </div>
             </div>
