@@ -11,12 +11,14 @@ describe('Result', () => {
     },
     staffs: []
   };
-  it('result should be -- when info and staffs is not provided', () => {
+  
+  test('result should be -- when info and staffs is not provided', () => {
     const { getByTestId } = render(<Result {...testWithoutData} />);
 
     expect(getByTestId('result')).toHaveTextContent('--');
   });
-  it('result should be -- when info not provided', () => {
+
+  test('result should be -- when info not provided', () => {
     const testData = {
       info: {
         unit: '',
@@ -39,7 +41,7 @@ describe('Result', () => {
     expect(getByTestId('result')).toHaveTextContent('--');
   });
 
-  it('result should be 10200', () => {
+  test('result should be 10200', () => {
     const testDataWithInfo = {
       info: {
         unit: '',
@@ -54,7 +56,7 @@ describe('Result', () => {
     expect(getByTestId('result')).toHaveTextContent(10200);
   });
 
-  it('result should be 10188 with 12 Hours Day', () => {
+  test('result should be 10188 with 12 Hours Day', () => {
     const testData = {
       info: {
         unit: '',
@@ -74,7 +76,8 @@ describe('Result', () => {
 
     expect(getByTestId('result')).toHaveTextContent(10188);
   });
-  it('result should be 10188 with 12 Hours Night', () => {
+
+  test('result should be 10188 with 12 Hours Night', () => {
     const testData = {
       info: {
         unit: '',
@@ -94,7 +97,8 @@ describe('Result', () => {
 
     expect(getByTestId('result')).toHaveTextContent(10188);
   });
-  it('result should be 10192 with 8 Hours Day', () => {
+
+  test('result should be 10192 with 8 Hours Day', () => {
     const testData = {
       info: {
         unit: '',
@@ -114,7 +118,8 @@ describe('Result', () => {
 
     expect(getByTestId('result')).toHaveTextContent(10192);
   });
-  it('result should be 10192 with 8 Hours Evening', () => {
+
+  test('result should be 10192 with 8 Hours Evening', () => {
     const testData = {
       info: {
         unit: '',
@@ -134,7 +139,8 @@ describe('Result', () => {
 
     expect(getByTestId('result')).toHaveTextContent(10192);
   });
-  it('result should be 10192 with 8 Hours Night', () => {
+
+  test('result should be 10192 with 8 Hours Night', () => {
     const testData = {
       info: {
         unit: '',
@@ -154,7 +160,8 @@ describe('Result', () => {
 
     expect(getByTestId('result')).toHaveTextContent(10192);
   });
-  it('result should be 10200 with other option', () => {
+
+  test('result should be 10200 with other option', () => {
     const testData = {
       info: {
         unit: '',
@@ -175,7 +182,7 @@ describe('Result', () => {
     expect(getByTestId('result')).toHaveTextContent(10200);
   });
 
-  it('text should be red when result < 0', () => {
+  test('text should be red when result < 0', () => {
     const testData = {
       info: {
         unit: '',
