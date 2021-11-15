@@ -28,12 +28,6 @@ test('Scenario content renders', () => {
   expect(HeaderElement).toBeInTheDocument();
 });
 
-
-//Will need to be uncommented when merge happens
-// test('Staff content renders', () => {
-//   render(<AppInMain />);
-// });
-
 // testing reload image click in header
 // found implementation that I built on top of here: https://stackoverflow.com/a/61649798
 test('reload on image click works', () => {

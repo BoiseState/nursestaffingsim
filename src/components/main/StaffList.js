@@ -58,13 +58,13 @@ class StaffList extends React.Component {
         const staffList = this.props.staffs.map((staff, i) =>
             <tr key={staff.id} id={staff.id} >
                 <td >
-                    <Trash className="bTrash" onClick={this.listRemove.bind(staff,i)} />
+                    <Trash className="bTrash" data-testid="delete-id" onClick={this.listRemove.bind(staff,i)} />
                 </td>
                 <td >{staff.type}</td>
                 <td>
-                   <Plus className="bPlus" onClick={this.listAdd.bind(staff,i)}/> 
+                   <Plus className="bPlus" data-testid="add-id" onClick={this.listAdd.bind(staff,i)}/> 
                    {staff.quantity} 
-                   <Dash className="bDash" onClick={this.listSub.bind(staff,i)}/>
+                   <Dash className="bDash" data-testid="minus-id" onClick={this.listSub.bind(staff,i)}/>
                 </td>
                 <td>{staff.shift}</td>
                 <td>{staff.shiftTotal}</td>
@@ -76,7 +76,7 @@ class StaffList extends React.Component {
            
                     <table className="table table-striped table-hover" id="staffCont">
                         <thead className="table-BSU">
-                            {staffList.length > 0 ? <tr>
+                            {staffList.length > 0 ? <tr data-testid="staffList-id">
                                 <th></th>
                                 <th scope="col">Staff Type</th>
                                 <th scope="col">Quantity</th>
