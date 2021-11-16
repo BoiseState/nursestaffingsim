@@ -8,7 +8,7 @@ BSU CS481 Capstone project
 This project is to help BSU nursing students practice staffing resource allocation.
 
 # Website link
-https://cs481-ekh.github.io/f21-angels-of-mercy/
+https://boisestate.github.io/nursestaffingsim/
 
 # Overview
 This project uses React JS to build the application. React JS is a JavaScript library that is used to build fast and interactive user interfaces for web and mobile applications. It is an open-source, component-base, front-end library that is only responsible for the application’s view layer.  To build the development environment the following steps are needed.
