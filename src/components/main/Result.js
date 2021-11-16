@@ -65,13 +65,7 @@ class Result extends React.Component {
         return "--";
 
     }
-
-    subTotalCalculation =(info, staffs) => {
-        
-
-
-    }
-    
+  
 
     render() {
 

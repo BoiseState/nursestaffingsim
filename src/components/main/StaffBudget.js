@@ -24,9 +24,7 @@ class StaffBudget extends React.Component {
 
         const shiftBudget = this.getShiftBudget(this.props.staffs);
         return (
-    //         const content = this.state.checked 
-    //   ? <div> Content </div>
-    //   : null;
+
             this.props.showBudget ?
             <div className="card mt-4">
                 <div className="card-header">Total Budget for Staff</div>

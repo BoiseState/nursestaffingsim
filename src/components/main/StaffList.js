@@ -4,6 +4,7 @@ import { Dash, Plus, Trash } from 'react-bootstrap-icons';
 
 class StaffList extends React.Component {
    
+
     listAdd = (index) =>{
         let quantity = parseInt(this.props.staffs[index].quantity)
         let shiftTotal = parseInt(this.props.staffs[index].shiftTotal)
@@ -53,8 +54,8 @@ class StaffList extends React.Component {
 
     }
 
+    
     render() {
-
         const staffList = this.props.staffs.map((staff, i) =>
             <tr key={staff.id} id={staff.id} >
                 <td >
@@ -73,7 +74,7 @@ class StaffList extends React.Component {
         );
 
         return (
-            <table className="table table-striped table-hover data-filter-data" id="staffCont">
+            <table className="table table-striped table-hover" id="staffCont">
                 <thead className="table-BSU">
                     {staffList.length > 0 ? <tr data-testid="staffList-id">
                         <th></th>
