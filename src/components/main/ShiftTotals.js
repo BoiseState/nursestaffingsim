@@ -51,7 +51,7 @@ class ShiftTotals extends React.Component {
         const eveningShiftHours = this.getEveningShift(this.props.staffs);
         const nightShiftHours = this.getNightShift(this.props.staffs);
         return (
-        
+            this.props.staffs.length > 0 ?
             <div>
                 <div className="card mt-4">
                     <div className="card-header"> Day Shift Hours</div>
@@ -72,6 +72,7 @@ class ShiftTotals extends React.Component {
                     </div>
                 </div>
             </div>
+            : null
         )
     }
 }
