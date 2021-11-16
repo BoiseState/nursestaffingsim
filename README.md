@@ -38,10 +38,10 @@ Once the github pages setting is turned on, you have to include it in your packa
 `"name": "nursestaffingsim"`
 `"homepage": "/nursestaffingsim"`
 
-** Note after adding to your package.json you will have to update your node_modules folder by removing node_modules (run `rm -rf node_modules package-lock.json`) and then reinstall it by running `npm install`.
-
 Then, set up the gh-pages build:
 `"deploy": "gh-pages -d build"`
+
+** Note after adding to your package.json you will have to update your node_modules folder by removing node_modules (run `rm -rf node_modules package-lock.json`) and then reinstall it by running `npm install`.
 
 This will finish hooking up the requirements for the github page. 
 The final step is to run: 
