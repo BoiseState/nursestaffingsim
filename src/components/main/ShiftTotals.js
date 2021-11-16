@@ -54,19 +54,19 @@ class ShiftTotals extends React.Component {
         
             <div>
                 <div className="card mt-4">
-                    <div className="card-header">Total Day Shift Hours</div>
+                    <div className="card-header"> Day Shift Hours</div>
                     <div id="dayTotal" className="card-body">
                         <h1>{dayShiftHours}</h1>
                     </div>
                 </div>
                 <div className="card mt-4">
-                    <div className="card-header">Total Evening Shift Hours</div>
+                    <div className="card-header">Evening Shift Hours</div>
                     <div id="eveningTotal" className="card-body">
                         <h1>{eveningShiftHours}</h1>
                     </div>
                 </div>
                 <div className="card mt-4">
-                    <div className="card-header">Total Night Shift Hours</div>
+                    <div className="card-header"> Night Shift Hours</div>
                     <div id="nightTotal" className="card-body">
                         <h1>{nightShiftHours}</h1>
                     </div>
