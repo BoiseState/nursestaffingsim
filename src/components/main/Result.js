@@ -1,6 +1,7 @@
 import React from 'react';
 import './Result.css';
 
+
 class Result extends React.Component {
 
     getShiftValue = (shiftString) => {
@@ -64,6 +65,13 @@ class Result extends React.Component {
         return "--";
 
     }
+
+    subTotalCalculation =(info, staffs) => {
+        
+
+
+    }
+    
 
     render() {
 

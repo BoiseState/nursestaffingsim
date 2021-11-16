@@ -13,10 +13,9 @@ class Header extends React.Component {
         return (
 
             <header>
-                <nav className="navbar navbar-light bg-light">
+                <nav className="navbar navbar-light bg-light ">
                     <div className="container-fluid">
                         <img src={logo} alt="Logo" data-testid="reload" onClick={this.onReload} />
-                        
                         <div id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
@@ -26,6 +25,7 @@ class Header extends React.Component {
                         </div>
                     </div>
                 </nav>
+
                 <div className="p-5 bg-primary text-white rounded">
                     <h1>Inpatient Nurse Staffing Simulator</h1>
                 </div>

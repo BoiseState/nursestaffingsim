@@ -73,23 +73,22 @@ class StaffList extends React.Component {
         );
 
         return (
-           
-                    <table className="table table-striped table-hover" id="staffCont">
-                        <thead className="table-BSU">
-                            {staffList.length > 0 ? <tr data-testid="staffList-id">
-                                <th></th>
-                                <th scope="col">Staff Type</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Shift Type</th>
-                                <th scope="col">Shift Total</th>
-                            </tr> : false}
-                        </thead>
-                        <tbody>
+            <table className="table table-striped table-hover data-filter-data" id="staffCont">
+                <thead className="table-BSU">
+                    {staffList.length > 0 ? <tr data-testid="staffList-id">
+                        <th></th>
+                        <th scope="col">Staff Type</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Shift Type</th>
+                        <th scope="col">Shift Total</th>
+                    </tr> : false}
+                </thead>
+                <tbody>
 
-                            {staffList}
-                        </tbody>
+                    {staffList}
+                </tbody>
 
-                    </table>
+            </table>
         
         );
     }

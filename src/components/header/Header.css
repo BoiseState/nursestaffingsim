@@ -7,7 +7,6 @@ header -> looking for tag
 
 header img {
     height: 50px;
-   
     cursor: pointer;
 }
 
@@ -17,8 +16,11 @@ header img {
     font-weight: bold;
 }
 
+
 header .bg-primary {
     background-color: #0033A0 !important;
     padding: 2%;
+    
 }
+
 
