@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/f21-angels-of-mercy/static/css/main.a40c5db5.chunk.css",
-    "main.js": "/f21-angels-of-mercy/static/js/main.38d629d9.chunk.js",
-    "main.js.map": "/f21-angels-of-mercy/static/js/main.38d629d9.chunk.js.map",
-    "runtime-main.js": "/f21-angels-of-mercy/static/js/runtime-main.ed8b57c9.js",
-    "runtime-main.js.map": "/f21-angels-of-mercy/static/js/runtime-main.ed8b57c9.js.map",
-    "static/css/2.a75f5a2c.chunk.css": "/f21-angels-of-mercy/static/css/2.a75f5a2c.chunk.css",
-    "static/js/2.f2228f41.chunk.js": "/f21-angels-of-mercy/static/js/2.f2228f41.chunk.js",
-    "static/js/2.f2228f41.chunk.js.map": "/f21-angels-of-mercy/static/js/2.f2228f41.chunk.js.map",
-    "static/js/3.e3dfa0df.chunk.js": "/f21-angels-of-mercy/static/js/3.e3dfa0df.chunk.js",
-    "static/js/3.e3dfa0df.chunk.js.map": "/f21-angels-of-mercy/static/js/3.e3dfa0df.chunk.js.map",
-    "index.html": "/f21-angels-of-mercy/index.html",
-    "static/css/2.a75f5a2c.chunk.css.map": "/f21-angels-of-mercy/static/css/2.a75f5a2c.chunk.css.map",
-    "static/css/main.a40c5db5.chunk.css.map": "/f21-angels-of-mercy/static/css/main.a40c5db5.chunk.css.map",
-    "static/js/2.f2228f41.chunk.js.LICENSE.txt": "/f21-angels-of-mercy/static/js/2.f2228f41.chunk.js.LICENSE.txt",
-    "static/media/Left-aligned-square-gray-2.11bbe62b.png": "/f21-angels-of-mercy/static/media/Left-aligned-square-gray-2.11bbe62b.png"
+    "main.css": "/nursestaffingsim/static/css/main.a40c5db5.chunk.css",
+    "main.js": "/nursestaffingsim/static/js/main.20b23cac.chunk.js",
+    "main.js.map": "/nursestaffingsim/static/js/main.20b23cac.chunk.js.map",
+    "runtime-main.js": "/nursestaffingsim/static/js/runtime-main.f1882149.js",
+    "runtime-main.js.map": "/nursestaffingsim/static/js/runtime-main.f1882149.js.map",
+    "static/css/2.a75f5a2c.chunk.css": "/nursestaffingsim/static/css/2.a75f5a2c.chunk.css",
+    "static/js/2.f4e38ca9.chunk.js": "/nursestaffingsim/static/js/2.f4e38ca9.chunk.js",
+    "static/js/2.f4e38ca9.chunk.js.map": "/nursestaffingsim/static/js/2.f4e38ca9.chunk.js.map",
+    "static/js/3.b30f781e.chunk.js": "/nursestaffingsim/static/js/3.b30f781e.chunk.js",
+    "static/js/3.b30f781e.chunk.js.map": "/nursestaffingsim/static/js/3.b30f781e.chunk.js.map",
+    "index.html": "/nursestaffingsim/index.html",
+    "static/css/2.a75f5a2c.chunk.css.map": "/nursestaffingsim/static/css/2.a75f5a2c.chunk.css.map",
+    "static/css/main.a40c5db5.chunk.css.map": "/nursestaffingsim/static/css/main.a40c5db5.chunk.css.map",
+    "static/js/2.f4e38ca9.chunk.js.LICENSE.txt": "/nursestaffingsim/static/js/2.f4e38ca9.chunk.js.LICENSE.txt",
+    "static/media/Left-aligned-square-gray-2.11bbe62b.png": "/nursestaffingsim/static/media/Left-aligned-square-gray-2.11bbe62b.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ed8b57c9.js",
+    "static/js/runtime-main.f1882149.js",
     "static/css/2.a75f5a2c.chunk.css",
-    "static/js/2.f2228f41.chunk.js",
+    "static/js/2.f4e38ca9.chunk.js",
     "static/css/main.a40c5db5.chunk.css",
-    "static/js/main.38d629d9.chunk.js"
+    "static/js/main.20b23cac.chunk.js"
   ]
 }
