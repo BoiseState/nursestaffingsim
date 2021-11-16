@@ -34,7 +34,9 @@ To do that, you enable github pages in the repo Settings -> Pages
 
 Initially, it will have the Source of your website on NONE. After following the deployment steps, the source will be gh-pages. In our case, we are using a gh-pages branch that contains the stand alone contents of our website (i.e. The root folder that contains the index.html and the css styles). If in the future there was a desire to change where the website is hosted, all one has to do is take a copy of the gh-pages branch. 
 
-Once the github pages setting is turned on, you have to include it in your package.json.
+Once the github pages setting is turned on, you have to include it in your package.json. Change the name and homepage in package.json:
+`"name": "nursestaffingsim"`
+`"homepage": "/nursestaffingsim"`
 
 ** Note after adding to your package.json you will have to update your node_modules folder by removing node_modules (run `rm -rf node_modules package-lock.json`) and then reinstall it by running `npm install`.
 

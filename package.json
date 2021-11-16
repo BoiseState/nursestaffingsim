@@ -1,7 +1,7 @@
 {
-  "name": "f21-angels-of-mercy",
+  "name": "nursestaffingsim",
   "version": "0.1.0",
-  "homepage": "/f21-angels-of-mercy",
+  "homepage": "/nursestaffingsim",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
