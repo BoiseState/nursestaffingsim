@@ -19,7 +19,7 @@ class Header extends React.Component {
                         <div id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="https://www.boisestate.edu/nursing/">BSU Nursing Department</a>
+                                    <a className="text-dark nav-link" href="https://www.boisestate.edu/nursing/">BSU Nursing Department</a>
                                 </li>
                             </ul>
                         </div>

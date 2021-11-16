@@ -127,7 +127,7 @@ class Scenario extends React.Component {
   render() {
     return (
       <div className="App">
-        <div class="row mt-3">
+        <div className="row mt-3">
           <div className="col-md-4 ">
             <RandomHPPDInfo onInfoChange={this.handleInfoChange} />
           </div>
