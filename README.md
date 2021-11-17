@@ -71,9 +71,8 @@ Right click on web page, click "Inspect", and this will open Developer Tools. An
 ### Setting breakpoints in files using Developer Tools
 Click "Source" at the top of Developer Tools, then under "localhost", expand the folder that has the name of your local file path, then find the file you want to debug.
 
-For example, to set a breakpoint in Scenario.js, expand "localhost" --> expand the file path that is where your code is stored --> expand "src" --> expand "components" --> expand "main", then click on "Scenario.js".  Once the file opens in Developer Tools, click to the left of a line number to set a break point. Once you start clicking or typing in the web application, if you do something that triggers that breakpoint, the web page will pause and you can step through the code.
- 
 # Common Error handling
+
 1. If a package is added to the package.json the node_modules on your computer will be out of date.
     - FIX:  Delete the node_modules folder package-lock.json and then run `npm install`
 2. If the gh-pages branch is accidentally removed or the git hub page connection is broken.
@@ -82,7 +81,11 @@ For example, to set a breakpoint in Scenario.js, expand "localhost" --> expand t
 
 # Resources
 - React-Bootstrap documentation: https://react-bootstrap.github.io/getting-started/introduction/
+
 - VS Code extension: ES7 React/Redux/GraphQL/React-Native snippets
 
+- React-Bootstrap documentation: https://react-bootstrap.github.io/getting-started/introduction/
 
+- React-Bootstrap 5 tooltips: https://getbootstrap.com/docs/5.0/components/tooltips/
 
+- VS Code extension: ES7 React/Redux/GraphQL/React-Native snippets
