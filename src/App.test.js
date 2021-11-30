@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import Header from './components/header/Header.js';
+import Home from './Home.js';
 import Footer from './components/footer/Footer.js';
 import { act } from 'react-dom/test-utils';
 import Scenario from './components/main/Scenario';

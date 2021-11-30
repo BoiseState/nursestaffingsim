@@ -1,19 +1,16 @@
 import './App.css';
-
-import Scenario from './components/main/Scenario.js';
-import Header from './components/header/Header.js';
-import Footer from './components/footer/Footer.js';
+import About from './components/header/About.js';
+import Home from './Home.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="container">
-      <div className="App">
-        <Header />
-        <Scenario />
-        <Footer />
-      </div>
-    </div>
-
+        <Router>
+          <Routes>
+            <Route path="/f21-angels-of-mercy/" element={<Home />} />
+            <Route path="/f21-angels-of-mercy/about" element={<About />} />
+          </Routes>
+        </Router>
   );
 }
 
