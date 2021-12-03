@@ -173,7 +173,7 @@ class About extends React.Component {
                         </ul>
                     </div>
                 </div>
-                <p><a href="https://boisestate.github.io/nursestaffingsim/">Nurse Staffing Simulator</a> is maintained by <a href="https://github.com/cs481-ekh">Dr. Eric Henderson</a>  - ehenderson@boisestate.edu</p>
+                <p><a href="https://github.com/BoiseState/nursestaffingsim">Nurse Staffing Simulator</a> is maintained by <a href="https://github.com/cs481-ekh">Dr. Eric Henderson</a>  - ehenderson@boisestate.edu</p>
             </div>
         );
     }
