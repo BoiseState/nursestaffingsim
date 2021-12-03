@@ -4,10 +4,23 @@ import Header from './components/header/Header.js';
 import Footer from './components/footer/Footer.js';
 import { act } from 'react-dom/test-utils';
 import Scenario from './components/main/Scenario';
+import {createMemoryHistory} from 'history'
+import { BrowserRouter as Router } from 'react-router-dom';
 
-
-test('Main page renders', () => {
-  render(<App />);
+test('App renders', () => {
+  // this test is passing but there is a console warn about no routes matched location "/"
+  // testing with routes is tricky and it originally was failing these tests altogether
+  // so even though it's doing the console warn, it is still passing the test and I'm satisfied for now
+  const history = createMemoryHistory();
+  const route = '/nursestaffingsim';
+  history.push(route);
+  render(
+    <Router history={history}>
+      <App />
+    </Router>
+  );
+  // verify page content for expected route
+  expect(screen.getByText(/Inpatient/i)).toBeInTheDocument();
 });
 
 test('Footer renders', () => {
@@ -17,7 +30,14 @@ test('Footer renders', () => {
 });
 
 test('Header renders', () => {
-render(<Header />);
+  const history = createMemoryHistory();
+  const route = '/nursestaffingsim';
+  history.push(route);
+  render(
+    <Router history={history}>
+      <Header />
+    </Router>
+    );
   const HeaderElement = screen.getByText(/Inpatient Nurse Staffing Simulator/i);
   expect(HeaderElement).toBeInTheDocument();
 });
@@ -31,7 +51,14 @@ test('Scenario content renders', () => {
 // testing reload image click in header
 // found implementation that I built on top of here: https://stackoverflow.com/a/61649798
 test('reload on image click works', () => {
-  render(<App />);
+  const history = createMemoryHistory();
+  const route = '/nursestaffingsim';
+  history.push(route);
+  render(
+    <Router history={history}>
+      <App />
+    </Router>,
+  );
   const location = window.location;
   delete window.location;
   window.location = {
