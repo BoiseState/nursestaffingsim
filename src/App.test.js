@@ -12,7 +12,7 @@ test('App renders', () => {
   // testing with routes is tricky and it originally was failing these tests altogether
   // so even though it's doing the console warn, it is still passing the test and I'm satisfied for now
   const history = createMemoryHistory();
-  const route = '/f21-angels-of-mercy';
+  const route = '/nursestaffingsim';
   history.push(route);
   render(
     <Router history={history}>
@@ -31,7 +31,7 @@ test('Footer renders', () => {
 
 test('Header renders', () => {
   const history = createMemoryHistory();
-  const route = '/f21-angels-of-mercy';
+  const route = '/nursestaffingsim';
   history.push(route);
   render(
     <Router history={history}>
@@ -52,7 +52,7 @@ test('Scenario content renders', () => {
 // found implementation that I built on top of here: https://stackoverflow.com/a/61649798
 test('reload on image click works', () => {
   const history = createMemoryHistory();
-  const route = '/f21-angels-of-mercy';
+  const route = '/nursestaffingsim';
   history.push(route);
   render(
     <Router history={history}>

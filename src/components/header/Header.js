@@ -19,8 +19,8 @@ class Header extends React.Component {
                     <Container>
                         <img src={logo} alt="Logo" data-testid="reload" onClick={this.onReload} />
                         <Nav className="me-auto">
-                            <Link className="text-dark nav-link" to="/f21-angels-of-mercy">Home</Link>
-                            <Link className="text-dark nav-link" to="/f21-angels-of-mercy/about">About</Link>
+                            <Link className="text-dark nav-link" to="/nursestaffingsim">Home</Link>
+                            <Link className="text-dark nav-link" to="/nursestaffingsim/about">About</Link>
                             <Nav.Link className="text-dark" href="https://www.boisestate.edu/nursing/">BSU Nursing Department</Nav.Link>
                         </Nav>
                     </Container>

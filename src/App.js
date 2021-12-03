@@ -11,16 +11,14 @@ function App() {
   return (
     <div className="container">
       <div className="App">
-        {/* <Router history={history}> */}
-          <div>
+        <div>
           <Header />
           <Routes>
-            <Route index path="/f21-angels-of-mercy" element={<Scenario />} />
-            <Route path="/f21-angels-of-mercy/about" element={<About />} />
+            <Route index path="/nursestaffingsim" element={<Scenario />} />
+            <Route path="/nursestaffingsim/about" element={<About />} />
           </Routes>
-          </div>
-        {/* </Router> */}
-      <Footer />
+        </div>
+        <Footer />
       </div>
     </div >
   );
