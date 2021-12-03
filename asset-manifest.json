@@ -1,26 +1,32 @@
 {
   "files": {
     "main.css": "/nursestaffingsim/static/css/main.e41cc61d.chunk.css",
-    "main.js": "/nursestaffingsim/static/js/main.63e8e4f1.chunk.js",
-    "main.js.map": "/nursestaffingsim/static/js/main.63e8e4f1.chunk.js.map",
-    "runtime-main.js": "/nursestaffingsim/static/js/runtime-main.f1882149.js",
-    "runtime-main.js.map": "/nursestaffingsim/static/js/runtime-main.f1882149.js.map",
+    "main.js": "/nursestaffingsim/static/js/main.611f645f.chunk.js",
+    "main.js.map": "/nursestaffingsim/static/js/main.611f645f.chunk.js.map",
+    "runtime-main.js": "/nursestaffingsim/static/js/runtime-main.5331a981.js",
+    "runtime-main.js.map": "/nursestaffingsim/static/js/runtime-main.5331a981.js.map",
     "static/css/2.a75f5a2c.chunk.css": "/nursestaffingsim/static/css/2.a75f5a2c.chunk.css",
-    "static/js/2.9371b228.chunk.js": "/nursestaffingsim/static/js/2.9371b228.chunk.js",
-    "static/js/2.9371b228.chunk.js.map": "/nursestaffingsim/static/js/2.9371b228.chunk.js.map",
-    "static/js/3.b30f781e.chunk.js": "/nursestaffingsim/static/js/3.b30f781e.chunk.js",
-    "static/js/3.b30f781e.chunk.js.map": "/nursestaffingsim/static/js/3.b30f781e.chunk.js.map",
+    "static/js/2.88bbd63c.chunk.js": "/nursestaffingsim/static/js/2.88bbd63c.chunk.js",
+    "static/js/2.88bbd63c.chunk.js.map": "/nursestaffingsim/static/js/2.88bbd63c.chunk.js.map",
+    "static/js/3.588c5239.chunk.js": "/nursestaffingsim/static/js/3.588c5239.chunk.js",
+    "static/js/3.588c5239.chunk.js.map": "/nursestaffingsim/static/js/3.588c5239.chunk.js.map",
     "index.html": "/nursestaffingsim/index.html",
     "static/css/2.a75f5a2c.chunk.css.map": "/nursestaffingsim/static/css/2.a75f5a2c.chunk.css.map",
     "static/css/main.e41cc61d.chunk.css.map": "/nursestaffingsim/static/css/main.e41cc61d.chunk.css.map",
-    "static/js/2.9371b228.chunk.js.LICENSE.txt": "/nursestaffingsim/static/js/2.9371b228.chunk.js.LICENSE.txt",
-    "static/media/Left-aligned-square-gray-2.11bbe62b.png": "/nursestaffingsim/static/media/Left-aligned-square-gray-2.11bbe62b.png"
+    "static/js/2.88bbd63c.chunk.js.LICENSE.txt": "/nursestaffingsim/static/js/2.88bbd63c.chunk.js.LICENSE.txt",
+    "static/media/Left-aligned-square-gray-2.11bbe62b.png": "/nursestaffingsim/static/media/Left-aligned-square-gray-2.11bbe62b.png",
+    "static/media/budget.adcb126c.jpeg": "/nursestaffingsim/static/media/budget.adcb126c.jpeg",
+    "static/media/error.eba8aeea.jpeg": "/nursestaffingsim/static/media/error.eba8aeea.jpeg",
+    "static/media/initialpg.11b079f6.jpeg": "/nursestaffingsim/static/media/initialpg.11b079f6.jpeg",
+    "static/media/input.a9a76a69.jpeg": "/nursestaffingsim/static/media/input.a9a76a69.jpeg",
+    "static/media/shifts.fff9adcb.jpeg": "/nursestaffingsim/static/media/shifts.fff9adcb.jpeg",
+    "static/media/staffModal.211817ac.jpeg": "/nursestaffingsim/static/media/staffModal.211817ac.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f1882149.js",
+    "static/js/runtime-main.5331a981.js",
     "static/css/2.a75f5a2c.chunk.css",
-    "static/js/2.9371b228.chunk.js",
+    "static/js/2.88bbd63c.chunk.js",
     "static/css/main.e41cc61d.chunk.css",
-    "static/js/main.63e8e4f1.chunk.js"
+    "static/js/main.611f645f.chunk.js"
   ]
 }
