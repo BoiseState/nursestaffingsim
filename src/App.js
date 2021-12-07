@@ -11,15 +11,13 @@ function App() {
   return (
     <div className="container">
       <div className="App">
-        {/* <Router history={history}> */}
           <div>
           <Header />
           <Routes>
-            <Route index path="/f21-angels-of-mercy" element={<Scenario />} />
-            <Route path="/f21-angels-of-mercy/about" element={<About />} />
+            <Route exact path="/" element={<Scenario />} />
+            <Route path="/about" element={<About />} />
           </Routes>
           </div>
-        {/* </Router> */}
       <Footer />
       </div>
     </div >
