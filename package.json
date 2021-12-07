@@ -1,7 +1,7 @@
 {
   "name": "f21-angels-of-mercy",
   "version": "0.1.0",
-  "homepage": "/f21-angels-of-mercy",
+  "homepage": "https://cs481-ekh.github.io/f21-angels-of-mercy/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
