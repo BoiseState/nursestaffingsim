@@ -102,7 +102,7 @@ class Scenario extends React.Component {
   // https://dev.to/alecgrey/controlled-forms-with-front-and-backend-validations-using-react-bootstrap-5a2
   findFormErrors = (name, val) => {
     const newErrors = {};
-
+    val = parseInt(val);
     if (name === "HPPD") {
       // HPPD errors
       if (!val || val === "") newErrors.HPPD = "HPPD cannot be blank!";
