@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/nursestaffingsim/static/css/main.e41cc61d.chunk.css",
-    "main.js": "/nursestaffingsim/static/js/main.06edc6cb.chunk.js",
-    "main.js.map": "/nursestaffingsim/static/js/main.06edc6cb.chunk.js.map",
+    "main.js": "/nursestaffingsim/static/js/main.e01563aa.chunk.js",
+    "main.js.map": "/nursestaffingsim/static/js/main.e01563aa.chunk.js.map",
     "runtime-main.js": "/nursestaffingsim/static/js/runtime-main.5331a981.js",
     "runtime-main.js.map": "/nursestaffingsim/static/js/runtime-main.5331a981.js.map",
     "static/css/2.8c0e6b67.chunk.css": "/nursestaffingsim/static/css/2.8c0e6b67.chunk.css",
@@ -27,6 +27,6 @@
     "static/css/2.8c0e6b67.chunk.css",
     "static/js/2.90fb3abe.chunk.js",
     "static/css/main.e41cc61d.chunk.css",
-    "static/js/main.06edc6cb.chunk.js"
+    "static/js/main.e01563aa.chunk.js"
   ]
 }
